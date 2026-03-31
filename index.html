@@ -971,68 +971,106 @@
                 postWhatsAppLeadId(leadData.leadId);
 
                 // Give webhook a tiny head start before leaving the page/app.
-                if (href && href !== '#') {
-                    e.preventDefault();
-                    setTimeout(() => {
-                        window.open(href, '_blank', 'noopener,noreferrer');
-                    }, 120);
+                if (!content || typeof content !== 'object') return;
+
+                // Keep hero emphasis style when updating headline from JSON.
+                setHeroHeadlineWithEmphasis(
+                    ['#hero-title', '#el-headline'],
+                    content.hero_title,
+                    content.hero_title_emphasis_words
+                );
+
+                // Map hero CTA
+                if (content.hero_cta) {
+                    const elCtaText = document.getElementById('el-cta-text');
+                    if (elCtaText) elCtaText.textContent = content.hero_cta;
                 }
-            });
-        }
+                if (content.hero_cta_sub) {
+                    const elCtaSub = document.getElementById('el-cta-subtext');
+                    if (elCtaSub) elCtaSub.textContent = content.hero_cta_sub;
+                }
 
-        ['el-cta', 'transform-cta', 'footer-cta'].forEach(id => {
-            const btn = document.getElementById(id);
-            if (btn) btn.addEventListener('click', openModal);
-        });
+                // Map transform CTA (preserve SVG)
+                if (content.transform_cta) {
+                    const btn = document.getElementById('transform-cta');
+                    if (btn) {
+                        const textSpan = btn.querySelector('#transform-cta-text');
+                        if (textSpan) textSpan.textContent = content.transform_cta;
+                    }
+                }
+                if (content.transform_cta_sub) {
+                    const btn = document.getElementById('transform-cta');
+                    if (btn) {
+                        const subSpan = btn.querySelector('.s-cta-sub');
+                        if (subSpan) subSpan.textContent = content.transform_cta_sub;
+                    }
+                }
 
-        const navCta = document.getElementById('nav-cta');
-        if (navCta) {
-            navCta.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal();
-            });
-        }
+                // Map footer CTA (preserve SVG)
+                if (content.footer_cta) {
+                    const btn = document.getElementById('footer-cta');
+                    if (btn) {
+                        // Try to find a span for main text (use id or fallback to first text node after SVG)
+                        let textSpan = btn.querySelector('#footer-cta-text');
+                        if (!textSpan) {
+                            // fallback: find first span after .wa-icon
+                            const waIcon = btn.querySelector('.wa-icon');
+                            if (waIcon && waIcon.nextElementSibling && waIcon.nextElementSibling.tagName === 'SPAN') {
+                                textSpan = waIcon.nextElementSibling;
+                            }
+                        }
+                        if (textSpan) textSpan.textContent = content.footer_cta;
+                    }
+                }
+                if (content.footer_cta_sub) {
+                    const btn = document.getElementById('footer-cta');
+                    if (btn) {
+                        const subSpan = btn.querySelector('.s-cta-sub');
+                        if (subSpan) subSpan.textContent = content.footer_cta_sub;
+                    }
+                }
 
-        const modalClose = document.getElementById('modal-close');
-        if (modalClose) modalClose.addEventListener('click', closeModal);
-
-        if (modal) {
-            modal.addEventListener('click', (e) => {
-                if (e.target.dataset.closeModal === 'true') closeModal();
-            });
-        }
-
-        document.querySelectorAll('.faq-item').forEach(item => {
-            const trigger = item.querySelector('.faq-question');
-            if (!trigger) return;
-
-            trigger.addEventListener('click', () => {
-                const isOpen = item.classList.contains('is-open');
-
-                document.querySelectorAll('.faq-item').forEach(other => {
-                    other.classList.remove('is-open');
-                    const otherTrigger = other.querySelector('.faq-question');
-                    if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+                // Map other text content as before (for other sections)
+                const textMap = {
+                    hero_subtitle: ['#hero-subtitle', '#el-subheadline'],
+                    section1_title: ['#section1-title', '#why-headline'],
+                    section1_point1: ['#section1-point1', '#feat-1-text'],
+                    faq_title: ['#faq-title', '#faq-headline'],
+                    faq_q1: '#faq-q-0',
+                    faq_a1: '#faq-a-0',
+                    step1_title: '#step-1-title',
+                    step2_title: '#step-2-title',
+                    step3_title: '#step-3-title',
+                    hero_tagline: '#el-tagline',
+                    hero_benefit_title: '.benefit-title',
+                    hero_benefit_1: '.benefit-grid .benefit-item-card:nth-child(1) span',
+                    hero_benefit_2: '.benefit-grid .benefit-item-card:nth-child(2) span',
+                    faq_label: '#faq .s-label',
+                    faq_q2: '#faq-q-1',
+                    faq_a2: '#faq-a-1',
+                    faq_q3: '#faq-q-2',
+                    faq_a3: '#faq-a-2',
+                    faq_q4: '#faq-q-3',
+                    faq_a4: '#faq-a-3',
+                    faq_q5: '#faq-q-4',
+                    faq_a5: '#faq-a-4',
+                    faq_q6: '#faq-q-5',
+                    faq_a6: '#faq-a-5',
+                    footer_name: '.footer-name',
+                    footer_sub: '.footer-sub',
+                    footer_location_label: '.footer-contact-item:nth-child(1) .footer-contact-label',
+                    footer_location: '#footer-location',
+                    footer_instagram_label: '.footer-contact-item:nth-child(2) .footer-contact-label',
+                    footer_instagram: '#footer-social',
+                    footer_hours_label: '.footer-contact-item:nth-child(3) .footer-contact-label',
+                    footer_hours: '#footer-hours'
+                };
+                Object.entries(textMap).forEach(([key, selectors]) => {
+                    if (!content[key]) return;
+                    if (!Array.isArray(selectors)) selectors = [selectors];
+                    selectors.forEach(sel => {
+                        const el = document.querySelector(sel);
+                        if (el) el.textContent = content[key];
+                    });
                 });
-
-                if (!isOpen) {
-                    item.classList.add('is-open');
-                    trigger.setAttribute('aria-expanded', 'true');
-                }
-            });
-        });
-
-        renderFooterCopyright();
-
-        (async () => {
-            const content = await loadContent();
-            if (content) applyContent(content);
-        })();
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-        });
-    </script>
-</body>
-
-</html>
+            }
