@@ -180,7 +180,7 @@ body {
 }
 .trust-card {
 	background: #fff;
-	border-radius: 1.2rem;
+	border-radius: 1rem;
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
@@ -191,7 +191,7 @@ body {
 	transition: box-shadow 0.2s;
 }
 .trust-card:hover {
-	box-shadow: 0 6px 24px 0 rgba(74,144,226,0.16), 0 2px 0 0 #f28c38;
+	box-shadow: 0 6px 24px 0 rgba(74,144,226,0.16);
 }
 .trust-card-icon {
 	margin-bottom: 0.5em;
@@ -406,7 +406,7 @@ body {
 	letter-spacing: 0.04em;
 	line-height: 1.1;
 	color: var(--brand-text);
-	margin: 0 0 2.4rem;
+	margin: 0 0 1.2rem;
 }
 
 /* Shared section CTA button */

@@ -78,23 +78,23 @@
                 <div class="s-inner">
                     <div class="s-label">為什麼選擇 Andrew</div>
                     <h2 id="why-headline" class="s-headline">專為上班族設計的<br>功能性訓練專家</h2>
-                    <!-- 信任度資訊卡片 -->
-                                <div class="why-trust-cards trust-cards-grid anim-4" style="margin-top:2.5rem;">
-                                    <div class="trust-card">
-                                        <div class="trust-card-icon"><i data-lucide="award" class="trust-icon"></i></div>
-                                        <div class="trust-card-label">國際認證</div>
-                                        <div class="trust-card-value">NASM / ACE 認證私人教練</div>
-                                    </div>
-                                    <div class="trust-card">
-                                        <div class="trust-card-icon"><i data-lucide="activity" class="trust-icon"></i></div>
-                                        <div class="trust-card-label">專長</div>
-                                        <div class="trust-card-value">痛症改善、姿勢矯正、上班族功能性訓練</div>
-                                    </div>
-                                    <div class="trust-card">
-                                        <div class="trust-card-icon"><i data-lucide="clock" class="trust-icon"></i></div>
-                                        <div class="trust-card-label">經驗</div>
-                                        <div class="trust-card-value">8 年教學經驗</div>
-                                    </div>
+                                <!-- 精簡信任度 badge -->
+                                <div class="why-trust-badges flex flex-wrap gap-2 mb-4 anim-4">
+                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
+                                        <i data-lucide="award" class="w-4 h-4 mr-1"></i>NASM / ACE 認證私人教練
+                                    </span>
+                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
+                                        <i data-lucide="heart-pulse" class="w-4 h-4 mr-1"></i>痛症改善
+                                    </span>
+                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
+                                        <i data-lucide="user-cog" class="w-4 h-4 mr-1"></i>姿勢矯正
+                                    </span>
+                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
+                                        <i data-lucide="briefcase" class="w-4 h-4 mr-1"></i>上班族功能性訓練
+                                    </span>
+                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
+                                        <i data-lucide="clock" class="w-4 h-4 mr-1"></i>8 年教學經驗
+                                    </span>
                                 </div>
                     <div class="why-grid">
                         <div class="why-card">
@@ -580,10 +580,46 @@
                 content.hero_title_emphasis_words
             );
 
+
+            // 只更新主/副 CTA 文字，不覆蓋 SVG
+            if (content.hero_cta) {
+                const ctaText = document.getElementById('el-cta-text');
+                if (ctaText) ctaText.textContent = content.hero_cta;
+            }
+            if (content.hero_cta_sub) {
+                const ctaSub = document.getElementById('el-cta-subtext');
+                if (ctaSub) ctaSub.textContent = content.hero_cta_sub;
+            }
+            if (content.transform_cta) {
+                const tCtaText = document.getElementById('transform-cta-text');
+                if (tCtaText) tCtaText.textContent = content.transform_cta;
+            }
+            if (content.transform_cta_sub) {
+                // 若 transform-cta 有副標
+                let tCtaBtn = document.getElementById('transform-cta');
+                if (tCtaBtn) {
+                    let sub = tCtaBtn.querySelector('.cta-subline, .s-cta-sub');
+                    if (sub) sub.textContent = content.transform_cta_sub;
+                }
+            }
+            if (content.footer_cta) {
+                const fCtaBtn = document.getElementById('footer-cta');
+                if (fCtaBtn) {
+                    let fCtaText = fCtaBtn.querySelector('#transform-cta-text, #footer-cta-text, span:not(.wa-icon):not(.cta-subline):not(.s-cta-sub)');
+                    if (fCtaText) fCtaText.textContent = content.footer_cta;
+                }
+            }
+            if (content.footer_cta_sub) {
+                const fCtaBtn = document.getElementById('footer-cta');
+                if (fCtaBtn) {
+                    let sub = fCtaBtn.querySelector('.cta-subline, .s-cta-sub');
+                    if (sub) sub.textContent = content.footer_cta_sub;
+                }
+            }
+
+            // 其他文字仍可用 textMap 控制
             const textMap = {
-                // Required mapping examples requested by user.
                 hero_subtitle: ['#hero-subtitle', '#el-subheadline'],
-                hero_cta: ['#hero-cta', '#el-cta-text'],
                 section1_title: ['#section1-title', '#why-headline'],
                 section1_point1: ['#section1-point1', '#feat-1-text'],
                 faq_title: ['#faq-title', '#faq-headline'],
@@ -592,17 +628,12 @@
                 step1_title: '#step-1-title',
                 step2_title: '#step-2-title',
                 step3_title: '#step-3-title',
-
-                // Hero
                 hero_tagline: '#el-tagline',
-                hero_cta_sub: '#el-cta-subtext',
                 hero_benefit_title: '.benefit-title',
                 hero_benefit_1: '.benefit-grid .benefit-item-card:nth-child(1) span',
                 hero_benefit_2: '.benefit-grid .benefit-item-card:nth-child(2) span',
                 hero_benefit_3: '.benefit-grid .benefit-item-card:nth-child(3) span',
                 hero_benefit_4: '.benefit-grid .benefit-item-card:nth-child(4) span',
-
-                // Why
                 section1_label: '#why-andrew .s-label',
                 section1_point1_title: '#feat-1-title',
                 section1_point2_title: '#feat-2-title',
@@ -611,8 +642,6 @@
                 section1_point3: '#feat-3-text',
                 section1_point4_title: '#feat-4-title',
                 section1_point4: '#feat-4-text',
-
-                // Process
                 process_label: '#trial-process .s-label',
                 process_title: '#trial-headline',
                 step1_desc: '#step-1-desc',
@@ -620,8 +649,6 @@
                 step3_desc: '#step-3-desc',
                 step4_title: '#step-4-title',
                 step4_desc: '#step-4-desc',
-
-                // Transformation
                 transform_label: '#transformation .s-label',
                 transform_title: '#transform-headline',
                 transform_group1_title: '.transform-group:nth-child(1) .transform-group-title',
@@ -631,10 +658,6 @@
                 transform_item3: '#transform-3',
                 transform_item4: '#transform-4',
                 transform_item5: '#transform-5',
-                transform_cta: '#transform-cta',
-                transform_cta_sub: '#transform-cta .s-cta-sub',
-
-                // FAQ
                 faq_label: '#faq .s-label',
                 faq_q2: '#faq-q-1',
                 faq_a2: '#faq-a-1',
@@ -646,8 +669,6 @@
                 faq_a5: '#faq-a-4',
                 faq_q6: '#faq-q-5',
                 faq_a6: '#faq-a-5',
-
-                // Footer
                 footer_name: '.footer-name',
                 footer_sub: '.footer-sub',
                 footer_location_label: '.footer-contact-item:nth-child(1) .footer-contact-label',
@@ -655,9 +676,7 @@
                 footer_instagram_label: '.footer-contact-item:nth-child(2) .footer-contact-label',
                 footer_instagram: '#footer-social',
                 footer_hours_label: '.footer-contact-item:nth-child(3) .footer-contact-label',
-                footer_hours: '#footer-hours',
-                footer_cta: '#footer-cta',
-                footer_cta_sub: '#footer-cta .s-cta-sub'
+                footer_hours: '#footer-hours'
             };
 
             Object.entries(textMap).forEach(([key, selectors]) => {
@@ -971,106 +990,68 @@
                 postWhatsAppLeadId(leadData.leadId);
 
                 // Give webhook a tiny head start before leaving the page/app.
-                if (!content || typeof content !== 'object') return;
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    setTimeout(() => {
+                        window.open(href, '_blank', 'noopener,noreferrer');
+                    }, 120);
+                }
+            });
+        }
 
-                // Keep hero emphasis style when updating headline from JSON.
-                setHeroHeadlineWithEmphasis(
-                    ['#hero-title', '#el-headline'],
-                    content.hero_title,
-                    content.hero_title_emphasis_words
-                );
+        ['el-cta', 'transform-cta', 'footer-cta'].forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', openModal);
+        });
 
-                // Map hero CTA
-                if (content.hero_cta) {
-                    const elCtaText = document.getElementById('el-cta-text');
-                    if (elCtaText) elCtaText.textContent = content.hero_cta;
-                }
-                if (content.hero_cta_sub) {
-                    const elCtaSub = document.getElementById('el-cta-subtext');
-                    if (elCtaSub) elCtaSub.textContent = content.hero_cta_sub;
-                }
+        const navCta = document.getElementById('nav-cta');
+        if (navCta) {
+            navCta.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
 
-                // Map transform CTA (preserve SVG)
-                if (content.transform_cta) {
-                    const btn = document.getElementById('transform-cta');
-                    if (btn) {
-                        const textSpan = btn.querySelector('#transform-cta-text');
-                        if (textSpan) textSpan.textContent = content.transform_cta;
-                    }
-                }
-                if (content.transform_cta_sub) {
-                    const btn = document.getElementById('transform-cta');
-                    if (btn) {
-                        const subSpan = btn.querySelector('.s-cta-sub');
-                        if (subSpan) subSpan.textContent = content.transform_cta_sub;
-                    }
-                }
+        const modalClose = document.getElementById('modal-close');
+        if (modalClose) modalClose.addEventListener('click', closeModal);
 
-                // Map footer CTA (preserve SVG)
-                if (content.footer_cta) {
-                    const btn = document.getElementById('footer-cta');
-                    if (btn) {
-                        // Try to find a span for main text (use id or fallback to first text node after SVG)
-                        let textSpan = btn.querySelector('#footer-cta-text');
-                        if (!textSpan) {
-                            // fallback: find first span after .wa-icon
-                            const waIcon = btn.querySelector('.wa-icon');
-                            if (waIcon && waIcon.nextElementSibling && waIcon.nextElementSibling.tagName === 'SPAN') {
-                                textSpan = waIcon.nextElementSibling;
-                            }
-                        }
-                        if (textSpan) textSpan.textContent = content.footer_cta;
-                    }
-                }
-                if (content.footer_cta_sub) {
-                    const btn = document.getElementById('footer-cta');
-                    if (btn) {
-                        const subSpan = btn.querySelector('.s-cta-sub');
-                        if (subSpan) subSpan.textContent = content.footer_cta_sub;
-                    }
-                }
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target.dataset.closeModal === 'true') closeModal();
+            });
+        }
 
-                // Map other text content as before (for other sections)
-                const textMap = {
-                    hero_subtitle: ['#hero-subtitle', '#el-subheadline'],
-                    section1_title: ['#section1-title', '#why-headline'],
-                    section1_point1: ['#section1-point1', '#feat-1-text'],
-                    faq_title: ['#faq-title', '#faq-headline'],
-                    faq_q1: '#faq-q-0',
-                    faq_a1: '#faq-a-0',
-                    step1_title: '#step-1-title',
-                    step2_title: '#step-2-title',
-                    step3_title: '#step-3-title',
-                    hero_tagline: '#el-tagline',
-                    hero_benefit_title: '.benefit-title',
-                    hero_benefit_1: '.benefit-grid .benefit-item-card:nth-child(1) span',
-                    hero_benefit_2: '.benefit-grid .benefit-item-card:nth-child(2) span',
-                    faq_label: '#faq .s-label',
-                    faq_q2: '#faq-q-1',
-                    faq_a2: '#faq-a-1',
-                    faq_q3: '#faq-q-2',
-                    faq_a3: '#faq-a-2',
-                    faq_q4: '#faq-q-3',
-                    faq_a4: '#faq-a-3',
-                    faq_q5: '#faq-q-4',
-                    faq_a5: '#faq-a-4',
-                    faq_q6: '#faq-q-5',
-                    faq_a6: '#faq-a-5',
-                    footer_name: '.footer-name',
-                    footer_sub: '.footer-sub',
-                    footer_location_label: '.footer-contact-item:nth-child(1) .footer-contact-label',
-                    footer_location: '#footer-location',
-                    footer_instagram_label: '.footer-contact-item:nth-child(2) .footer-contact-label',
-                    footer_instagram: '#footer-social',
-                    footer_hours_label: '.footer-contact-item:nth-child(3) .footer-contact-label',
-                    footer_hours: '#footer-hours'
-                };
-                Object.entries(textMap).forEach(([key, selectors]) => {
-                    if (!content[key]) return;
-                    if (!Array.isArray(selectors)) selectors = [selectors];
-                    selectors.forEach(sel => {
-                        const el = document.querySelector(sel);
-                        if (el) el.textContent = content[key];
-                    });
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const trigger = item.querySelector('.faq-question');
+            if (!trigger) return;
+
+            trigger.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
+
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    other.classList.remove('is-open');
+                    const otherTrigger = other.querySelector('.faq-question');
+                    if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
                 });
-            }
+
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        renderFooterCopyright();
+
+        (async () => {
+            const content = await loadContent();
+            if (content) applyContent(content);
+        })();
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+    </script>
+</body>
+
+</html>

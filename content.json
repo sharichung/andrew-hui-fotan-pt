@@ -25,9 +25,13 @@
     "section1_point3": "根據你的身體狀況與生活習慣靈活調整。",
     "section1_point4_title": "專為忙碌上班族設計",
     "section1_point4": "短時間高效率訓練，效果明顯、負擔低。",
-    "section1_trust_cert": "NASM / ACE 認證私人教練",
-    "section1_trust_specialty": "痛症改善、姿勢矯正、上班族功能性訓練",
-    "section1_trust_exp": "8 年教學經驗",
+    "section1_trust_badges": [
+        { "icon": "award", "text": "NASM / ACE 認證私人教練" },
+        { "icon": "heart-pulse", "text": "痛症改善" },
+        { "icon": "user-cog", "text": "姿勢矯正" },
+        { "icon": "briefcase", "text": "上班族功能性訓練" },
+        { "icon": "clock", "text": "8 年教學經驗" }
+    ],
 
     "process_label": "首次體驗課流程",
     "process_title": "你的首次體驗課會點進行？",
