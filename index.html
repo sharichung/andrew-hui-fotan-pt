@@ -483,16 +483,77 @@
             if (!btn) return;
 
             btn.dataset[dataKey] = text;
-            const label = btn.querySelector('span:last-child');
-            if (label) label.textContent = text;
+            // Find the label span: must be the span that is NOT .radio-dot or .dot
+            // Structure: <button> <span class="radio-dot"><span class="dot"></span></span> <span>LABEL</span> </button>
+            const spans = btn.querySelectorAll('span');
+            for (const span of spans) {
+                if (!span.classList.contains('radio-dot') && !span.classList.contains('dot')) {
+                    span.textContent = text;
+                    break;
+                }
+            }
+        }
+
+        function setHeroHeadlineWithEmphasis(selectors, value, emphasisWords) {
+            if (typeof value !== 'string') return;
+            const list = Array.isArray(selectors) ? selectors : [selectors];
+
+            const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const words = (typeof emphasisWords === 'string' ? emphasisWords : '')
+                .split('|')
+                .map(w => w.trim())
+                .filter(Boolean)
+                .sort((a, b) => b.length - a.length);
+
+            for (const selector of list) {
+                const node = document.querySelector(selector);
+                if (!node) continue;
+
+                node.textContent = '';
+                value.split('\n').forEach((line, i, arr) => {
+                    node.appendChild(document.createTextNode(line));
+                    if (i < arr.length - 1) node.appendChild(document.createElement('br'));
+                });
+
+                if (words.length > 0) {
+                    words.forEach(word => {
+                        const pattern = new RegExp(escapeRegExp(word), 'g');
+                        node.innerHTML = node.innerHTML.replace(pattern, '<span class="headline-emphasis">$&</span>');
+                    });
+                }
+                return;
+            }
+        }
+
+        function renderFooterCopyright(template) {
+            const footerBottom = document.querySelector('.footer-bottom');
+            if (!footerBottom) return;
+
+            const year = String(new Date().getFullYear());
+            const base = typeof template === 'string' && template.trim()
+                ? template.trim()
+                : 'Andrew Hui Personal Training. All rights reserved.';
+
+            if (/\{\s*year\s*\}/i.test(base)) {
+                footerBottom.textContent = base.replace(/\{\s*year\s*\}/gi, year);
+                return;
+            }
+
+            footerBottom.textContent = `© ${year} ${base}`;
         }
 
         function applyContent(content) {
             if (!content || typeof content !== 'object') return;
 
+            // Keep hero emphasis style when updating headline from JSON.
+            setHeroHeadlineWithEmphasis(
+                ['#hero-title', '#el-headline'],
+                content.hero_title,
+                content.hero_title_emphasis_words
+            );
+
             const textMap = {
                 // Required mapping examples requested by user.
-                hero_title: ['#hero-title', '#el-headline'],
                 hero_subtitle: ['#hero-subtitle', '#el-subheadline'],
                 hero_cta: ['#hero-cta', '#el-cta-text'],
                 section1_title: ['#section1-title', '#why-headline'],
@@ -568,8 +629,7 @@
                 footer_hours_label: '.footer-contact-item:nth-child(3) .footer-contact-label',
                 footer_hours: '#footer-hours',
                 footer_cta: '#footer-cta',
-                footer_cta_sub: '#footer-cta .s-cta-sub',
-                footer_copyright: '.footer-bottom'
+                footer_cta_sub: '#footer-cta .s-cta-sub'
             };
 
             Object.entries(textMap).forEach(([key, selectors]) => {
@@ -608,6 +668,8 @@
             setOptionLabel('#times .radio-option:nth-child(1)', content.form_time_option_1, 'time');
             setOptionLabel('#times .radio-option:nth-child(2)', content.form_time_option_2, 'time');
             setOptionLabel('#times .radio-option:nth-child(3)', content.form_time_option_3, 'time');
+
+            renderFooterCopyright(content.footer_copyright);
         }
 
         async function loadContent() {
@@ -932,8 +994,7 @@
             });
         });
 
-        const footerYear = document.getElementById('footer-year');
-        if (footerYear) footerYear.textContent = new Date().getFullYear();
+        renderFooterCopyright();
 
         (async () => {
             const content = await loadContent();
