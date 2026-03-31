@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="zh-Hant" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Hui 火炭 1 對 1 功能性訓練</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="h-full font-noto">
+    <div id="app-wrapper" class="app-wrapper w-full h-full overflow-auto">
+        <!-- Subtle grid pattern overlay -->
+        <div class="grid-overlay">
+        </div>
+        <div class="relative w-full h-full flex flex-col"><!-- Hero -->
+            <main class="flex-1 flex items-center w-full px-5 md:px-10 lg:px-16 pb-4">
+                <div class="hero-layout w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center max-w-7xl mx-auto">
+                    <!-- Left: Copy -->
+                    <div class="hero-copy flex flex-col gap-4 lg:gap-5 order-1">
+                        <div>
+                            <p id="el-tagline" class="tagline-pill tagline anim-1 text-m tracking-[0.2em] uppercase mb-4">火炭 1 對 1 功能性訓練</p>
+                            <h1 id="el-headline" class="main-headline anim-1 font-bebas leading-[0.95] tracking-tight">令忙碌上班族體態<span class="headline-emphasis">更強、更穩、更 fit</span></h1>
+                        </div>
+                        <p id="el-subheadline" class="subheadline anim-2 text-base md:text-lg leading-relaxed max-w-xl">長期久坐、姿勢差、腰痛、無時間運動？<br>
+                            跟住 Andrew 用高效率功能性訓練，幫你提升力量、改善痛症，重新找回身體的控制感與自信。</p>
+                        <div class="hero-cta-wrap anim-3 flex flex-col items-start gap-5"><button
+                            type="button"
+                                id="el-cta"
+                                class="primary-cta cta-btn cta-pulse group relative bg-brand hover:bg-brandDark text-white font-bold text-lg sm:text-2xl px-8 sm:px-10 py-4 sm:py-5 rounded-xl transition-all duration-300 active:scale-95 w-full sm:w-auto text-center">
+                                <span id="el-cta-text">$200 首次體驗課 →</span>
+                                <span id="el-cta-subtext" class="cta-subline block text-xs sm:text-sm font-normal opacity-80 mt-1">原價 $880｜火炭限定｜名額有限</span>
+                            </button>
+                        </div>
+                        <div class="hero-benefits anim-4">
+                            <h2 class="benefit-title">你會得到</h2>
+                            <div class="benefit-grid">
+                                <div class="benefit-item-card"><i data-lucide="clipboard-check" class="icon-benefit"></i><span>全方位身體分析</span></div>
+                                <div class="benefit-item-card"><i data-lucide="activity" class="icon-benefit"></i><span>體能與動作測試</span></div>
+                                <div class="benefit-item-card"><i data-lucide="dumbbell" class="icon-benefit"></i><span>個人化全身鍛鍊</span></div>
+                                <div class="benefit-item-card"><i data-lucide="calendar-check" class="icon-benefit"></i><span>循序進階訓練計劃</span></div>
+                            </div>
+                        </div>
+                    </div><!-- Right: Trainer illustration -->
+                    <div class="hero-image order-2 lg:order-2 flex items-center justify-center anim-img">
+                        <div class="relative">
+                            <!-- Background accent circle -->
+                            <div class="accent-circle-wrap absolute inset-0 flex items-center justify-center">
+                                <div class="accent-circle rounded-full">
+                                </div>
+                            </div>
+                            <!-- Trainer image -->
+                            <img src="./images/00000086-IMG_2387.png" alt="Andrew Hui functional training coach" class="trainer-svg" /><!-- Decorative dots -->
+                            <div class="dots-decor absolute top-4 right-0">
+                                <svg width="60" height="60">
+                                    <pattern id="dots" width="12" height="12" patternunits="userSpaceOnUse">
+                                        <circle cx="2" cy="2" r="1.5" fill="#0066FF" />
+                                    </pattern>
+                                    <rect width="60" height="60" fill="url(#dots)" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- ─── WHY ANDREW ─── -->
+            <section id="why-andrew" class="s-why">
+                <div class="s-inner">
+                    <div class="s-label">為什麼選擇 Andrew</div>
+                    <h2 id="why-headline" class="s-headline">專為上班族設計的<br>功能性訓練專家</h2>
+                    <div class="why-grid">
+                        <div class="why-card">
+                            <div class="why-icon-wrap"><i data-lucide="person-standing" class="why-icon"></i></div>
+                            <div class="why-card-title" id="feat-1-title">姿勢改善專家</div>
+                            <div class="why-card-text" id="feat-1-text">專注功能性訓練與動作質量，特別適合久坐上班族。</div>
+                        </div>
+                        <div class="why-card">
+                            <div class="why-icon-wrap"><i data-lucide="flask-conical" class="why-icon"></i></div>
+                            <div class="why-card-title" id="feat-2-title">科學化訓練方針</div>
+                            <div class="why-card-text" id="feat-2-text">以安全、循序漸進、均衡發展為核心，避免受傷。</div>
+                        </div>
+                        <div class="why-card">
+                            <div class="why-icon-wrap"><i data-lucide="sliders-horizontal" class="why-icon"></i></div>
+                            <div class="why-card-title" id="feat-3-title">人性化調整課表</div>
+                            <div class="why-card-text" id="feat-3-text">根據你的身體狀況與生活習慣靈活調整。</div>
+                        </div>
+                        <div class="why-card">
+                            <div class="why-icon-wrap"><i data-lucide="timer" class="why-icon"></i></div>
+                            <div class="why-card-title" id="feat-4-title">專為忙碌上班族設計</div>
+                            <div class="why-card-text" id="feat-4-text">短時間高效率訓練，效果明顯、負擔低。</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── TRIAL PROCESS ─── -->
+            <section id="trial-process" class="s-process">
+                <div class="s-inner">
+                    <div class="s-label">首次體驗課流程</div>
+                    <h2 id="trial-headline" class="s-headline">你的首次體驗課會點進行？</h2>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="process-num-wrap">
+                                <div class="process-num">1</div>
+                                <div class="process-connector" aria-hidden="true"></div>
+                            </div>
+                            <div class="process-body">
+                                <div class="process-icon-wrap"><i data-lucide="scan-line" class="process-icon"></i></div>
+                                <div class="process-title" id="step-1-title">身體分析</div>
+                                <div class="process-desc" id="step-1-desc">InBody + 姿勢檢查，了解你的基礎數據。</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="process-num-wrap">
+                                <div class="process-num">2</div>
+                                <div class="process-connector" aria-hidden="true"></div>
+                            </div>
+                            <div class="process-body">
+                                <div class="process-icon-wrap"><i data-lucide="activity" class="process-icon"></i></div>
+                                <div class="process-title" id="step-2-title">體能與動作測試</div>
+                                <div class="process-desc" id="step-2-desc">找出真正需要改善的地方，訂立個人基準。</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="process-num-wrap">
+                                <div class="process-num">3</div>
+                                <div class="process-connector" aria-hidden="true"></div>
+                            </div>
+                            <div class="process-body">
+                                <div class="process-icon-wrap"><i data-lucide="dumbbell" class="process-icon"></i></div>
+                                <div class="process-title" id="step-3-title">個人化全身鍛鍊</div>
+                                <div class="process-desc" id="step-3-desc">安全、簡單、有效的功能性動作訓練。</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="process-num-wrap">
+                                <div class="process-num">4</div>
+                            </div>
+                            <div class="process-body">
+                                <div class="process-icon-wrap"><i data-lucide="calendar-check" class="process-icon"></i></div>
+                                <div class="process-title" id="step-4-title">21 週專屬訓練計劃</div>
+                                <div class="process-desc" id="step-4-desc">清晰路線圖，讓你持續進步、不再迷失方向。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── TRANSFORMATION ─── -->
+            <section id="transformation" class="s-transform">
+                <div class="s-inner">
+                    <div class="s-label">你的改變</div>
+                    <h2 id="transform-headline" class="s-headline">你會感受到的改變</h2>
+                    <div class="transform-layout">
+                        <div class="transform-group">
+                            <div class="transform-group-title-wrap">
+                                <i data-lucide="dumbbell" class="transform-group-icon"></i>
+                                <div class="transform-group-title">力量與穩定</div>
+                            </div>
+                            <div class="transform-list">
+                                <div class="transform-item">
+                                    <i data-lucide="check-circle-2" class="transform-item-icon"></i>
+                                    <div id="transform-1" class="transform-item-text">更穩定、更有力量</div>
+                                </div>
+                                <div class="transform-item">
+                                    <i data-lucide="check-circle-2" class="transform-item-icon"></i>
+                                    <div id="transform-2" class="transform-item-text">腰肩不適明顯減輕</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="transform-group">
+                            <div class="transform-group-title-wrap">
+                                <i data-lucide="sparkles" class="transform-group-icon"></i>
+                                <div class="transform-group-title">體態與控制感</div>
+                            </div>
+                            <div class="transform-list">
+                                <div class="transform-item">
+                                    <i data-lucide="check-circle-2" class="transform-item-icon"></i>
+                                    <div id="transform-3" class="transform-item-text">體態更挺拔、更精神</div>
+                                </div>
+                                <div class="transform-item">
+                                    <i data-lucide="check-circle-2" class="transform-item-icon"></i>
+                                    <div id="transform-4" class="transform-item-text">動作更順、更有控制</div>
+                                </div>
+                                <div class="transform-item">
+                                    <i data-lucide="check-circle-2" class="transform-item-icon"></i>
+                                    <div id="transform-5" class="transform-item-text">訓練更輕鬆、可持續</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transform-cta-wrap">
+                        <button type="button" class="s-cta-btn cta-btn cta-pulse" id="transform-cta">
+                            $200 首次體驗課 →
+                            <span class="s-cta-sub">原價 $880｜火炭限定｜名額有限</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── FAQ ─── -->
+            <section id="faq" class="s-faq">
+                <div class="s-inner">
+                    <div class="s-label">常見問題</div>
+                    <h2 id="faq-headline" class="s-headline">FAQ</h2>
+                    <div class="faq-list">
+                        <div class="faq-item" data-faq="0">
+                            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-0">
+                                <span id="faq-q-0">我完全無運動經驗，可以上嗎？</span>
+                                <span class="faq-toggle" aria-hidden="true"><i data-lucide="plus" class="faq-toggle-icon"></i></span>
+                            </button>
+                            <div class="faq-answer" id="faq-a-0">可以，會由最簡單的動作開始，逐步進展。</div>
+                        </div>
+                        <div class="faq-item" data-faq="1">
+                            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-1">
+                                <span id="faq-q-1">我有腰痛／膝痛，可以訓練嗎？</span>
+                                <span class="faq-toggle" aria-hidden="true"><i data-lucide="plus" class="faq-toggle-icon"></i></span>
+                            </button>
+                            <div class="faq-answer" id="faq-a-1">可以，會按你的情況調整動作，以康復為優先。</div>
+                        </div>
+                        <div class="faq-item" data-faq="2">
+                            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-2">
+                                <span id="faq-q-2">會唔會好辛苦？</span>
+                                <span class="faq-toggle" aria-hidden="true"><i data-lucide="plus" class="faq-toggle-icon"></i></span>
+                            </button>
+                            <div class="faq-answer" id="faq-a-2">唔會，強度完全按你能力設定，以舒適、可持續為目標。</div>
+                        </div>
+                        <div class="faq-item" data-faq="3">
+                            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-3">
+                                <span id="faq-q-3">需要綁約嗎？</span>
+                                <span class="faq-toggle" aria-hidden="true"><i data-lucide="plus" class="faq-toggle-icon"></i></span>
+                            </button>
+                            <div class="faq-answer" id="faq-a-3">唔需要，體驗後自由決定是否繼續。</div>
+                        </div>
+                        <div class="faq-item" data-faq="4">
+                            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-4">
+                                <span id="faq-q-4">1 對 1 同 1 對 2 有咩分別？</span>
+                                <span class="faq-toggle" aria-hidden="true"><i data-lucide="plus" class="faq-toggle-icon"></i></span>
+                            </button>
+                            <div class="faq-answer" id="faq-a-4">1 對 1 個人化最高，專注度最佳；1 對 2 更划算、氣氛更輕鬆。</div>
+                        </div>
+                        <div class="faq-item" data-faq="5">
+                            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-5">
+                                <span id="faq-q-5">需要帶咩？</span>
+                                <span class="faq-toggle" aria-hidden="true"><i data-lucide="plus" class="faq-toggle-icon"></i></span>
+                            </button>
+                            <div class="faq-answer" id="faq-a-5">運動服、運動鞋、水即可，其他器材我哋會提供。</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── FOOTER ─── -->
+            <footer id="footer" class="s-footer">
+                <div class="s-inner">
+                    <div class="footer-top">
+                        <div class="footer-brand">
+                            <div class="footer-logo-mark">AH</div>
+                            <div>
+                                <div class="footer-name">Andrew Hui</div>
+                                <div class="footer-sub">火炭 1 對 1 功能性訓練</div>
+                            </div>
+                        </div>
+                        <div class="footer-contact-grid">
+                            <div class="footer-contact-item">
+                                <i data-lucide="map-pin" class="footer-contact-icon"></i>
+                                <div>
+                                    <div class="footer-contact-label">地點</div>
+                                    <div id="footer-location" class="footer-contact-value">火炭（預約後提供詳細地址）</div>
+                                </div>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i data-lucide="instagram" class="footer-contact-icon"></i>
+                                <div>
+                                    <div class="footer-contact-label">Instagram</div>
+                                    <div id="footer-social" class="footer-contact-value">@andrewcoach1013</div>
+                                </div>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i data-lucide="clock" class="footer-contact-icon"></i>
+                                <div>
+                                    <div class="footer-contact-label">營業時間</div>
+                                    <div id="footer-hours" class="footer-contact-value">Mon – Sun｜10:00 – 22:00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-cta-wrap">
+                        <button type="button" class="s-cta-btn cta-btn cta-pulse footer-cta-btn" id="footer-cta">
+                            立即預約 $200 體驗課 →
+                            <span class="s-cta-sub">WhatsApp 即時聯絡 · 名額有限</span>
+                        </button>
+                    </div>
+                    <div class="footer-bottom">
+                        &copy; <span id="footer-year"></span> Andrew Hui Personal Training. All rights reserved.
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div id="modal" class="lead-modal" aria-hidden="true">
+        <div class="lead-modal-overlay modal-overlay" data-close-modal="true"></div>
+        <div class="lead-modal-card" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+            <button type="button" id="modal-close" class="lead-close" aria-label="Close">×</button>
+            <div class="lead-modal-inner">
+                <div class="progress-wrap">
+                    <div class="progress-meta"><span id="step-label">步驟 1 / 3</span><span id="step-pct">33%</span></div>
+                    <div class="progress-track"><div id="step-bar" class="step-bar" style="width:33%"></div></div>
+                </div>
+
+                <div id="step-1" class="step-content">
+                    <h3 id="lead-modal-title" class="lead-title">你的主要目標是？</h3>
+                    <p class="lead-subtitle">選擇一個最符合你情況的選項</p>
+                    <div id="goals" class="option-list">
+                        <button type="button" class="radio-option" data-goal="減脂"><span class="radio-dot"><span class="dot"></span></span><span>減脂</span></button>
+                        <button type="button" class="radio-option" data-goal="增肌"><span class="radio-dot"><span class="dot"></span></span><span>增肌</span></button>
+                        <button type="button" class="radio-option" data-goal="改善姿勢 / 痛症"><span class="radio-dot"><span class="dot"></span></span><span>改善姿勢 / 痛症</span></button>
+                        <button type="button" class="radio-option" data-goal="變 fit、變健康"><span class="radio-dot"><span class="dot"></span></span><span>變 fit、變健康</span></button>
+                        <button type="button" class="radio-option" data-goal="初學者想開始運動"><span class="radio-dot"><span class="dot"></span></span><span>初學者想開始運動</span></button>
+                    </div>
+                    <button type="button" id="next-1" class="lead-submit" disabled>下一步 →</button>
+                </div>
+
+                <div id="step-2" class="step-content hidden">
+                    <h3 class="lead-title">你最方便的訓練時間？</h3>
+                    <p class="lead-subtitle">選擇一個時間段</p>
+                    <div id="times" class="option-list">
+                        <button type="button" class="radio-option" data-time="平日"><span class="radio-dot"><span class="dot"></span></span><span>平日</span></button>
+                        <button type="button" class="radio-option" data-time="週末"><span class="radio-dot"><span class="dot"></span></span><span>週末</span></button>
+                        <button type="button" class="radio-option" data-time="平日或週末都可以"><span class="radio-dot"><span class="dot"></span></span><span>平日或週末都可以</span></button>
+                    </div>
+                    <div class="step-actions">
+                        <button type="button" id="back-2" class="step-ghost">← 上一步</button>
+                        <button type="button" id="next-2" class="lead-submit" disabled>下一步 →</button>
+                    </div>
+                </div>
+
+                <div id="step-3" class="step-content hidden">
+                    <h3 class="lead-title">你希望 Andrew 點樣協助你？</h3>
+                    <p class="lead-subtitle">簡單描述你的情況或需要</p>
+                    <textarea id="user-note" class="lead-input lead-textarea" rows="4" placeholder="例如：我成日腰痛，想改善姿勢同核心力量..."></textarea>
+                    <div class="step-actions">
+                        <button type="button" id="back-3" class="step-ghost">← 上一步</button>
+                        <button type="button" id="submit-btn" class="lead-submit">提交 →</button>
+                    </div>
+                </div>
+
+                <div id="step-success" class="step-content hidden success-step">
+                    <div id="confetti-container" class="confetti-container"></div>
+                    <div class="success-icon"><i data-lucide="check" class="w-6 h-6"></i></div>
+                    <h3 class="lead-title">差一步就完成預約！</h3>
+                    <p class="lead-subtitle">請按下方按鈕，透過 WhatsApp 傳送你的資料，<br>Andrew 才能根據你的目標提供建議。</p>
+                    <a id="wa-link" href="#" target="_blank" rel="noopener noreferrer" class="lead-submit whatsapp-link">WhatsApp 傳送並預約體驗課</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const defaultConfig = {
+            headline: '令忙碌上班族體態更強、更穩、更 fit',
+            subheadline: '長期久坐、姿勢差、腰痛、無時間運動？\n跟住 Andrew 用高效率功能性訓練，幫你提升力量、改善痛症，重新找回身體的控制感與自信。',
+            cta_text: '$200 首次體驗課 →',
+            cta_subtext: '原價 $880｜火炭限定｜名額有限',
+            trust_text: '',
+            background_color: '#EDE6D8'
+        };
+
+        function applyConfig(config) {
+            const c = key => config[key] || defaultConfig[key];
+
+            // Headline
+            const hl = document.getElementById('el-headline');
+            hl.textContent = '';
+            (c('headline')).split('\n').forEach((line, i, arr) => {
+                hl.appendChild(document.createTextNode(line));
+                if (i < arr.length - 1) hl.appendChild(document.createElement('br'));
+            });
+            hl.innerHTML = hl.innerHTML.replace(/更強、更穩、更\s*fit/g, '<span class="headline-emphasis">$&</span>');
+
+            document.getElementById('el-subheadline').textContent = c('subheadline');
+            document.getElementById('el-cta-text').textContent = c('cta_text');
+            document.getElementById('el-cta-subtext').textContent = c('cta_subtext');
+            const trustItems = (c('trust_text') || '').split('|').map(item => item.trim()).filter(Boolean);
+            ['el-trust-1', 'el-trust-2', 'el-trust-3', 'el-trust-4'].forEach((id, idx) => {
+                const node = document.getElementById(id);
+                if (node && trustItems[idx]) node.textContent = trustItems[idx];
+            });
+        }
+
+        if (window.elementSdk && typeof window.elementSdk.init === 'function') {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange: async (config) => applyConfig(config),
+                mapToCapabilities: (config) => {
+                    const c = key => config[key] || defaultConfig[key];
+                    const mut = (key) => ({
+                        get: () => c(key),
+                        set: (v) => {
+                            config[key] = v;
+                            window.elementSdk.setConfig({
+                                [key]: v
+                            });
+                        }
+                    });
+                    return {
+                            recolorables: [
+                                mut('background_color')
+                            ],
+                        borderables: [],
+                            fontEditable: null,
+                            fontSizeable: null
+                    };
+                },
+                mapToEditPanelValues: (config) => {
+                    const c = key => config[key] || defaultConfig[key];
+                    return new Map([
+                        ['headline', c('headline')],
+                        ['subheadline', c('subheadline')],
+                        ['cta_text', c('cta_text')],
+                        ['cta_subtext', c('cta_subtext')],
+                        ['trust_text', c('trust_text')]
+                    ]);
+                }
+            });
+        }
+
+        applyConfig(defaultConfig);
+
+        const WA_NUMBER = '447311987619';
+        const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/pnmpjp792p53sh4d6ymeeyqluuhei2zb';
+        const MAKE_WHATSAPP_WEBHOOK_URL = 'https://hook.eu1.make.com/8vjeb3ebiw5pr4r9uha7h7q7g77e70le';
+        const CONTENT_URL = './content.json';
+        const modal = document.getElementById('modal');
+        const stepIds = ['step-1', 'step-2', 'step-3', 'step-success'];
+        let submitInFlight = false;
+        window.leadData = {
+            leadId: '',
+            goal: '',
+            preferredTime: '',
+            note: '',
+            source: ''
+        };
+
+        function setTextBySelectors(selectors, value) {
+            if (typeof value !== 'string') return;
+            const list = Array.isArray(selectors) ? selectors : [selectors];
+            for (const selector of list) {
+                const node = document.querySelector(selector);
+                if (node) {
+                    node.textContent = value;
+                    return;
+                }
+            }
+        }
+
+        function setAttrBySelectors(selectors, attr, value) {
+            if (typeof value !== 'string') return;
+            const list = Array.isArray(selectors) ? selectors : [selectors];
+            for (const selector of list) {
+                const node = document.querySelector(selector);
+                if (node) {
+                    node.setAttribute(attr, value);
+                    return;
+                }
+            }
+        }
+
+        function setOptionLabel(selector, text, dataKey) {
+            if (typeof text !== 'string') return;
+            const btn = document.querySelector(selector);
+            if (!btn) return;
+
+            btn.dataset[dataKey] = text;
+            const label = btn.querySelector('span:last-child');
+            if (label) label.textContent = text;
+        }
+
+        function applyContent(content) {
+            if (!content || typeof content !== 'object') return;
+
+            const textMap = {
+                // Required mapping examples requested by user.
+                hero_title: ['#hero-title', '#el-headline'],
+                hero_subtitle: ['#hero-subtitle', '#el-subheadline'],
+                hero_cta: ['#hero-cta', '#el-cta-text'],
+                section1_title: ['#section1-title', '#why-headline'],
+                section1_point1: ['#section1-point1', '#feat-1-text'],
+                faq_title: ['#faq-title', '#faq-headline'],
+                faq_q1: '#faq-q-0',
+                faq_a1: '#faq-a-0',
+                step1_title: '#step-1-title',
+                step2_title: '#step-2-title',
+                step3_title: '#step-3-title',
+
+                // Hero
+                hero_tagline: '#el-tagline',
+                hero_cta_sub: '#el-cta-subtext',
+                hero_benefit_title: '.benefit-title',
+                hero_benefit_1: '.benefit-grid .benefit-item-card:nth-child(1) span',
+                hero_benefit_2: '.benefit-grid .benefit-item-card:nth-child(2) span',
+                hero_benefit_3: '.benefit-grid .benefit-item-card:nth-child(3) span',
+                hero_benefit_4: '.benefit-grid .benefit-item-card:nth-child(4) span',
+
+                // Why
+                section1_label: '#why-andrew .s-label',
+                section1_point1_title: '#feat-1-title',
+                section1_point2_title: '#feat-2-title',
+                section1_point2: '#feat-2-text',
+                section1_point3_title: '#feat-3-title',
+                section1_point3: '#feat-3-text',
+                section1_point4_title: '#feat-4-title',
+                section1_point4: '#feat-4-text',
+
+                // Process
+                process_label: '#trial-process .s-label',
+                process_title: '#trial-headline',
+                step1_desc: '#step-1-desc',
+                step2_desc: '#step-2-desc',
+                step3_desc: '#step-3-desc',
+                step4_title: '#step-4-title',
+                step4_desc: '#step-4-desc',
+
+                // Transformation
+                transform_label: '#transformation .s-label',
+                transform_title: '#transform-headline',
+                transform_group1_title: '.transform-group:nth-child(1) .transform-group-title',
+                transform_group2_title: '.transform-group:nth-child(2) .transform-group-title',
+                transform_item1: '#transform-1',
+                transform_item2: '#transform-2',
+                transform_item3: '#transform-3',
+                transform_item4: '#transform-4',
+                transform_item5: '#transform-5',
+                transform_cta: '#transform-cta',
+                transform_cta_sub: '#transform-cta .s-cta-sub',
+
+                // FAQ
+                faq_label: '#faq .s-label',
+                faq_q2: '#faq-q-1',
+                faq_a2: '#faq-a-1',
+                faq_q3: '#faq-q-2',
+                faq_a3: '#faq-a-2',
+                faq_q4: '#faq-q-3',
+                faq_a4: '#faq-a-3',
+                faq_q5: '#faq-q-4',
+                faq_a5: '#faq-a-4',
+                faq_q6: '#faq-q-5',
+                faq_a6: '#faq-a-5',
+
+                // Footer
+                footer_name: '.footer-name',
+                footer_sub: '.footer-sub',
+                footer_location_label: '.footer-contact-item:nth-child(1) .footer-contact-label',
+                footer_location: '#footer-location',
+                footer_instagram_label: '.footer-contact-item:nth-child(2) .footer-contact-label',
+                footer_instagram: '#footer-social',
+                footer_hours_label: '.footer-contact-item:nth-child(3) .footer-contact-label',
+                footer_hours: '#footer-hours',
+                footer_cta: '#footer-cta',
+                footer_cta_sub: '#footer-cta .s-cta-sub',
+                footer_copyright: '.footer-bottom'
+            };
+
+            Object.entries(textMap).forEach(([key, selectors]) => {
+                if (Object.prototype.hasOwnProperty.call(content, key)) {
+                    setTextBySelectors(selectors, content[key]);
+                }
+            });
+
+            // Form copy
+            setTextBySelectors('#lead-modal-title', content.form_step1_title);
+            setTextBySelectors('#step-1 .lead-subtitle', content.form_step1_subtitle);
+            setTextBySelectors('#next-1', content.form_next_1);
+
+            setTextBySelectors('#step-2 .lead-title', content.form_step2_title);
+            setTextBySelectors('#step-2 .lead-subtitle', content.form_step2_subtitle);
+            setTextBySelectors('#back-2', content.form_back_2);
+            setTextBySelectors('#next-2', content.form_next_2);
+
+            setTextBySelectors('#step-3 .lead-title', content.form_step3_title);
+            setTextBySelectors('#step-3 .lead-subtitle', content.form_step3_subtitle);
+            setTextBySelectors('#back-3', content.form_back_3);
+            setTextBySelectors('#submit-btn', content.form_submit);
+            setAttrBySelectors('#user-note', 'placeholder', content.form_note_placeholder);
+
+            setTextBySelectors('#step-success .lead-title', content.form_success_title);
+            setTextBySelectors('#step-success .lead-subtitle', content.form_success_subtitle);
+            setTextBySelectors('#wa-link', content.form_whatsapp_cta);
+
+            // Update selectable options (text + data payload value)
+            setOptionLabel('#goals .radio-option:nth-child(1)', content.form_goal_option_1, 'goal');
+            setOptionLabel('#goals .radio-option:nth-child(2)', content.form_goal_option_2, 'goal');
+            setOptionLabel('#goals .radio-option:nth-child(3)', content.form_goal_option_3, 'goal');
+            setOptionLabel('#goals .radio-option:nth-child(4)', content.form_goal_option_4, 'goal');
+            setOptionLabel('#goals .radio-option:nth-child(5)', content.form_goal_option_5, 'goal');
+
+            setOptionLabel('#times .radio-option:nth-child(1)', content.form_time_option_1, 'time');
+            setOptionLabel('#times .radio-option:nth-child(2)', content.form_time_option_2, 'time');
+            setOptionLabel('#times .radio-option:nth-child(3)', content.form_time_option_3, 'time');
+        }
+
+        async function loadContent() {
+            try {
+                const response = await fetch(CONTENT_URL, { cache: 'no-store' });
+                if (!response.ok) throw new Error(`Failed to load content.json: ${response.status}`);
+                const content = await response.json();
+                console.log('[Content] content.json loaded successfully');
+                return content;
+            } catch (error) {
+                // Fallback: keep existing hardcoded HTML copy so page never goes blank.
+                console.warn('[Content] Failed to load content.json, fallback to default HTML copy.', error);
+                return null;
+            }
+        }
+
+        function openModal() {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            resetForm();
+            goToStep(1);
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function resetForm() {
+            leadData.leadId = '';
+            leadData.goal = '';
+            leadData.preferredTime = '';
+            leadData.note = '';
+            leadData.source = '';
+            document.getElementById('user-note').value = '';
+            document.getElementById('next-1').disabled = true;
+            document.getElementById('next-2').disabled = true;
+            document.querySelectorAll('.radio-option').forEach(el => {
+                el.classList.remove('selected');
+                const dot = el.querySelector('.dot');
+                if (dot) dot.style.transform = 'scale(0)';
+            });
+        }
+
+        function buildWhatsAppLink() {
+            const text = [
+                '你好 Andrew，我想預約 $200 首次體驗課。',
+                '',
+                `Lead ID：${leadData.leadId || '未提供'}`,
+                `我的主要目標是：${leadData.goal || '未提供'}`,
+                `最方便的訓練時間：${leadData.preferredTime || '未提供'}`,
+                `我的情況／困難：${leadData.note || '未提供'}`,
+                '',
+                '請問可以點安排？謝謝！'
+            ].join('\n');
+            return `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${encodeURIComponent(text)}`;
+        }
+
+        function getUTMSource() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('utm_source') || 'Landing Page';
+        }
+
+        function getSelectedValue(selector, attrName) {
+            const selected = document.querySelector(`${selector} .radio-option.selected`);
+            return selected ? (selected.dataset[attrName] || '') : '';
+        }
+
+        async function postLeadToMake(data) {
+            const payload = {
+                leadId: data.leadId || '',
+                LeadID: data.leadId || '',
+                lead_id: data.leadId || '',
+                goal: data.goal || '',
+                preferredTime: data.preferredTime || '',
+                note: data.note || '',
+                source: data.source || ''
+            };
+
+            console.log('[Lead] Posting lead data to Make webhook:', payload);
+            const params = new URLSearchParams(payload);
+            const jsonBody = JSON.stringify(payload);
+
+            try {
+                // Primary path: single JSON POST to avoid duplicate rows.
+                const response = await fetch(MAKE_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: jsonBody,
+                    keepalive: true
+                });
+
+                console.log('[Lead] Form webhook response status:', response.status);
+                if (response.ok) return true;
+
+                // Only if main POST is non-2xx, fallback once with sendBeacon.
+                if (navigator.sendBeacon) {
+                    const beaconBlob = new Blob([jsonBody], { type: 'application/json' });
+                    const beaconSent = navigator.sendBeacon(MAKE_WEBHOOK_URL, beaconBlob);
+                    console.log('[Lead] Form webhook fallback sendBeacon sent:', beaconSent);
+                    return beaconSent;
+                }
+
+                return false;
+            } catch (error) {
+                console.error('Failed to post lead to Make webhook:', error);
+
+                // Fallback once on network error.
+                if (navigator.sendBeacon) {
+                    const beaconBlob = new Blob([jsonBody], { type: 'application/json' });
+                    const beaconSent = navigator.sendBeacon(MAKE_WEBHOOK_URL, beaconBlob);
+                    console.log('[Lead] Form webhook fallback sendBeacon after error:', beaconSent);
+                    return beaconSent;
+                }
+
+                return false;
+            }
+        }
+
+        function postWhatsAppLeadId(leadId) {
+            if (!leadId) {
+                console.log('[Lead] Skip WhatsApp webhook: missing leadId');
+                return;
+            }
+
+            const payload = {
+                leadId,
+                LeadID: leadId,
+                lead_id: leadId
+            };
+            const params = new URLSearchParams({
+                leadId,
+                LeadID: leadId,
+                lead_id: leadId,
+                ts: String(Date.now())
+            });
+            const body = JSON.stringify(payload);
+
+            console.log('[Lead] Posting WhatsApp click payload:', payload);
+
+            const blob = new Blob([body], { type: 'application/json' });
+
+            if (navigator.sendBeacon) {
+                const sent = navigator.sendBeacon(MAKE_WHATSAPP_WEBHOOK_URL, blob);
+                console.log('[Lead] WhatsApp webhook sendBeacon sent:', sent);
+                if (!sent) {
+                    // Fallback with urlencoded payload for services expecting form-like body.
+                    navigator.sendBeacon(MAKE_WHATSAPP_WEBHOOK_URL, params);
+                }
+            }
+
+            fetch(MAKE_WHATSAPP_WEBHOOK_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+                body: params.toString(),
+                keepalive: true
+            }).catch((error) => {
+                console.error('Failed to post WhatsApp leadId to Make webhook:', error);
+            });
+
+            // Final fallback: GET ping with query params (often easiest for Make webhook capture).
+            const ping = new Image();
+            ping.src = `${MAKE_WHATSAPP_WEBHOOK_URL}?${params.toString()}`;
+        }
+
+        function selectOption(type, button, value) {
+            if (type === 'goal') leadData.goal = value;
+            if (type === 'preferredTime') leadData.preferredTime = value;
+
+            const parent = button.parentElement;
+            parent.querySelectorAll('.radio-option').forEach(opt => {
+                opt.classList.remove('selected');
+                const dot = opt.querySelector('.dot');
+                if (dot) dot.style.transform = 'scale(0)';
+            });
+            button.classList.add('selected');
+            const dot = button.querySelector('.dot');
+            if (dot) dot.style.transform = 'scale(1)';
+
+            if (type === 'goal') document.getElementById('next-1').disabled = false;
+            if (type === 'preferredTime') document.getElementById('next-2').disabled = false;
+        }
+
+        function goToStep(step) {
+            stepIds.forEach(id => document.getElementById(id).classList.add('hidden'));
+            const targetId = step === 'success' ? 'step-success' : `step-${step}`;
+            document.getElementById(targetId).classList.remove('hidden');
+
+            const pct = step === 'success' ? 100 : Math.round((step / 3) * 100);
+            document.getElementById('step-bar').style.width = `${pct}%`;
+            document.getElementById('step-label').textContent = step === 'success' ? '完成！' : `步驟 ${step} / 3`;
+            document.getElementById('step-pct').textContent = `${pct}%`;
+        }
+
+        function spawnConfetti() {
+            const container = document.getElementById('confetti-container');
+            container.innerHTML = '';
+            const colors = ['#F28C38', '#C0A16B', '#4A90E2', '#FFFFFF'];
+            for (let i = 0; i < 22; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = `${Math.random() * 0.45}s`;
+                confetti.style.animationDuration = `${1 + Math.random()}s`;
+                container.appendChild(confetti);
+            }
+        }
+
+        document.querySelectorAll('#goals .radio-option').forEach(btn => {
+            btn.addEventListener('click', () => selectOption('goal', btn, btn.dataset.goal));
+        });
+        document.querySelectorAll('#times .radio-option').forEach(btn => {
+            btn.addEventListener('click', () => selectOption('preferredTime', btn, btn.dataset.time));
+        });
+
+        document.getElementById('next-1').addEventListener('click', () => goToStep(2));
+        document.getElementById('next-2').addEventListener('click', () => goToStep(3));
+        document.getElementById('back-2').addEventListener('click', () => goToStep(1));
+        document.getElementById('back-3').addEventListener('click', () => goToStep(2));
+        document.getElementById('submit-btn').addEventListener('click', async () => {
+            if (submitInFlight) {
+                console.log('[Lead] Submit ignored: request already in flight');
+                return;
+            }
+
+            submitInFlight = true;
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = '提交中...';
+
+            leadData.leadId = `lead_${Date.now()}`;
+            leadData.goal = leadData.goal || getSelectedValue('#goals', 'goal');
+            leadData.preferredTime = leadData.preferredTime || getSelectedValue('#times', 'time');
+            leadData.note = document.getElementById('user-note').value.trim();
+            leadData.source = getUTMSource();
+
+            console.log('[Lead] Prepared leadData:', leadData);
+
+            const ok = await postLeadToMake(leadData);
+
+            if (ok) {
+                document.getElementById('wa-link').href = buildWhatsAppLink();
+                goToStep('success');
+                spawnConfetti();
+                lucide.createIcons();
+                console.log('[Lead] Lead posted successfully and moved to success step');
+            } else {
+                console.error('[Lead] Lead post failed, staying on step 3');
+                alert('提交未成功，請再試一次。');
+            }
+
+            submitInFlight = false;
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        });
+
+        const waLink = document.getElementById('wa-link');
+        if (waLink) {
+            waLink.addEventListener('click', (e) => {
+                const href = waLink.href;
+                postWhatsAppLeadId(leadData.leadId);
+
+                // Give webhook a tiny head start before leaving the page/app.
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    setTimeout(() => {
+                        window.open(href, '_blank', 'noopener,noreferrer');
+                    }, 120);
+                }
+            });
+        }
+
+        ['el-cta', 'transform-cta', 'footer-cta'].forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', openModal);
+        });
+
+        const navCta = document.getElementById('nav-cta');
+        if (navCta) {
+            navCta.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        const modalClose = document.getElementById('modal-close');
+        if (modalClose) modalClose.addEventListener('click', closeModal);
+
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target.dataset.closeModal === 'true') closeModal();
+            });
+        }
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const trigger = item.querySelector('.faq-question');
+            if (!trigger) return;
+
+            trigger.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
+
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    other.classList.remove('is-open');
+                    const otherTrigger = other.querySelector('.faq-question');
+                    if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+                });
+
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        const footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+        (async () => {
+            const content = await loadContent();
+            if (content) applyContent(content);
+        })();
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+    </script>
+</body>
+
+</html>
