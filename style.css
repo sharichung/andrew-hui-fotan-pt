@@ -401,7 +401,7 @@ body {
 }
 
 .why-card {
-	background: var(--brand-cream);
+	background: linear-gradient(180deg, #f8f4ec 0%, #f2eadf 100%);
 	border-radius: 1rem;
 	padding: 1.6rem 1.5rem;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -525,6 +525,7 @@ body {
 	font-size: 0.9rem;
 	line-height: 1.6;
 	color: rgba(26, 26, 26, 0.65);
+    padding: 0 1rem 0 0;
 }
 
 /* =============================================
@@ -565,10 +566,10 @@ body {
 }
 
 .transform-group-title {
-	font-size: 0.98rem;
-	font-weight: 800;
-	letter-spacing: 0.01em;
-	color: var(--brand-text);
+	font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    color: var(--brand-primary);
 }
 
 .transform-list {
