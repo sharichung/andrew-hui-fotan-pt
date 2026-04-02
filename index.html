@@ -20,10 +20,10 @@
         <div class="grid-overlay">
         </div>
         <div class="relative w-full h-full flex flex-col"><!-- Hero -->
-            <main class="flex-1 flex items-center w-full px-5 md:px-10 lg:px-16 pb-4">
-                <div class="hero-layout w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center max-w-7xl mx-auto">
+            <main class="flex-1 flex items-stretch w-full px-5 md:px-10 lg:px-16 pb-0">
+                <div class="hero-layout w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-end max-w-7xl mx-auto">
                     <!-- Left: Copy -->
-                    <div class="hero-copy flex flex-col gap-4 lg:gap-5 order-1">
+                    <div class="hero-copy flex flex-col gap-4 lg:gap-5 order-1 self-center pb-8">
                         <div>
                             <p id="el-tagline" class="tagline-pill tagline anim-1 text-m tracking-[0.2em] uppercase mb-4">火炭 1 對 1 功能性訓練</p>
                             <h1 id="el-headline" class="main-headline anim-1 font-bebas leading-[0.95] tracking-tight">忙到冇時間運動？<span class="headline-emphasis">腰痛、肩痛、體態走樣？</span></h1>
@@ -42,7 +42,7 @@
                             </button>
                         </div>
                         <div class="hero-benefits anim-4">
-                            <h2 class="benefit-title">你會得到</h2>
+                            <h2 class="benefit-title">你將獲得 🎁</h2>
                             <div class="benefit-grid">
                                 <div class="benefit-item-card"><i data-lucide="clipboard-check" class="icon-benefit"></i><span>全方位身體分析</span></div>
                                 <div class="benefit-item-card"><i data-lucide="activity" class="icon-benefit"></i><span>體能與動作測試</span></div>
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                     </div><!-- Right: Trainer illustration -->
-                    <div class="hero-image order-2 lg:order-2 flex items-center justify-center anim-img">
+                    <div class="hero-image order-2 lg:order-2 flex items-end justify-center anim-img self-end">
                         <div class="relative">
                             <!-- Background accent circle -->
                             <div class="accent-circle-wrap absolute inset-0 flex items-center justify-center">
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <!-- Trainer image -->
-                            <img src="./images/00000086-IMG_2387.png" alt="Andrew Hui functional training coach" class="trainer-svg" /><!-- Decorative dots -->
+                            <img src="./images/Andrew_Hero.png" alt="Andrew Hui functional training coach" class="trainer-svg" /><!-- Decorative dots -->
                             <div class="dots-decor absolute top-4 right-0">
                                 <svg width="60" height="60">
                                     <pattern id="dots" width="12" height="12" patternunits="userSpaceOnUse">
@@ -76,46 +76,36 @@
             <!-- ─── WHY ANDREW ─── -->
             <section id="why-andrew" class="s-why">
                 <div class="s-inner">
-                    <div class="s-label">為什麼選擇 Andrew</div>
-                    <h2 id="why-headline" class="s-headline">專為上班族設計的<br>功能性訓練專家</h2>
+                    <div class="s-label">為什麼選擇 Andrew Hui 🎯</div>
+                    <h2 id="why-headline" class="s-headline">專為火炭居民打造健康身體的專家</h2>
                                 <!-- 精簡信任度 badge -->
                                 <div class="why-trust-badges flex flex-wrap gap-2 mb-4 anim-4">
-                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
-                                        <i data-lucide="award" class="w-4 h-4 mr-1"></i>NASM / ACE 認證私人教練
-                                    </span>
-                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
-                                        <i data-lucide="heart-pulse" class="w-4 h-4 mr-1"></i>痛症改善
-                                    </span>
-                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
-                                        <i data-lucide="user-cog" class="w-4 h-4 mr-1"></i>姿勢矯正
-                                    </span>
-                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
-                                        <i data-lucide="briefcase" class="w-4 h-4 mr-1"></i>上班族功能性訓練
-                                    </span>
-                                    <span class="badge-pill badge rounded-pill flex items-center gap-1 px-3 py-1 bg-neutral-100 text-brand text-sm font-medium">
-                                        <i data-lucide="clock" class="w-4 h-4 mr-1"></i>8 年教學經驗
-                                    </span>
+                                    <span class="trust-badge"><i data-lucide="award" class="trust-badge-icon"></i><span id="trust-badge-1">NASM / ACE 認證私人教練</span></span>
+                                    <span class="trust-badge"><i data-lucide="heart-pulse" class="trust-badge-icon"></i><span id="trust-badge-2">痛症改善</span></span>
+                                    <span class="trust-badge"><i data-lucide="activity" class="trust-badge-icon"></i><span id="trust-badge-3">姿勢矯正</span></span>
+                                    <span class="trust-badge"><i data-lucide="briefcase" class="trust-badge-icon"></i><span id="trust-badge-4">上班族功能性訓練</span></span>
+                                    <span class="trust-badge"><i data-lucide="clock" class="trust-badge-icon"></i><span id="trust-badge-5">8 年教學經驗</span></span>
                                 </div>
                     <div class="why-grid">
                         <div class="why-card">
-                            <div class="why-icon-wrap"><i data-lucide="person-standing" class="why-icon"></i></div>
-                            <div class="why-card-title" id="feat-1-title">姿勢改善專家</div>
-                            <div class="why-card-text" id="feat-1-text">專注功能性訓練與動作質量，特別適合久坐上班族。</div>
+                            <div class="why-icon-wrap"><i data-lucide="trending-up" class="why-icon"></i></div>
+                            <div class="why-card-title" id="feat-1-title">高效增肌減脂 📈</div>
+                            <div class="why-card-text" id="feat-1-text">透過週期性重量訓練，精準提升代謝率，打造充滿活力的體質。</div>
                         </div>
                         <div class="why-card">
-                            <div class="why-icon-wrap"><i data-lucide="flask-conical" class="why-icon"></i></div>
-                            <div class="why-card-title" id="feat-2-title">科學化訓練方針</div>
-                            <div class="why-card-text" id="feat-2-text">以安全、循序漸進、均衡發展為核心，避免受傷。</div>
+                            <div class="why-icon-wrap"><i data-lucide="heart-handshake" class="why-icon"></i></div>
+                            <div class="why-card-title" id="feat-2-title">健康 3 大元素 ⚖️</div>
+                            <div class="why-card-text" id="feat-2-text">同步強化肌肉力量、心肺耐力與身體柔軟度，實現全方位健康。</div>
                         </div>
                         <div class="why-card">
-                            <div class="why-icon-wrap"><i data-lucide="sliders-horizontal" class="why-icon"></i></div>
-                            <div class="why-card-title" id="feat-3-title">人性化調整課表</div>
-                            <div class="why-card-text" id="feat-3-text">根據你的身體狀況與生活習慣靈活調整。</div>
+                            <div class="why-icon-wrap"><i data-lucide="apple" class="why-icon"></i></div>
+                            <div class="why-card-title" id="feat-3-title">專業營養配套 🥗</div>
+                            <div class="why-card-text" id="feat-3-text">提供實作飲食建議與營養指導，確保運動後獲得充分修復。</div>
                         </div>
                         <div class="why-card">
-                            <div class="why-icon-wrap"><i data-lucide="timer" class="why-icon"></i></div>
-                            <div class="why-card-title" id="feat-4-title">專為忙碌上班族設計</div>
-                            <div class="why-card-text" id="feat-4-text">短時間高效率訓練，效果明顯、負擔低。</div>
+                            <div class="why-icon-wrap"><i data-lucide="target" class="why-icon"></i></div>
+                            <div class="why-card-title" id="feat-4-title">半年目標管理 📅</div>
+                            <div class="why-card-text" id="feat-4-text">24 週由淺入深，從基礎、塑形到力量，見證身體的驚人蛻變。</div>
                         </div>
                     </div>
                 </div>
@@ -124,75 +114,107 @@
             <!-- ─── TRIAL PROCESS ─── -->
             <section id="trial-process" class="s-process">
                 <div class="s-inner">
-                    <div class="s-label">首次體驗課流程</div>
-                    <h2 id="trial-headline" class="s-headline">你的首次體驗課會點進行？</h2>
-                    <div class="process-steps">
-                        <div class="process-step">
+                    <div class="process-content">
+                        <div class="process-text">
+                            <div class="s-label">60 分鐘體驗流程 🛠️</div>
+                            <h2 id="trial-headline" class="s-headline">你的改變，將由這六步開啟</h2>
+                            <div class="process-steps">
+                        <div class="process-step" data-step="1" data-icon="scan-line" data-title="數據深度剖析" data-desc="透過 InBody 掌握肌肉與體脂比例，建立基礎數據。">
                             <div class="process-num-wrap">
-                                <div class="process-num">1</div>
+                                <button type="button" class="process-num" data-step-btn="1" aria-label="Step 1">1</button>
                                 <div class="process-connector" aria-hidden="true"></div>
                             </div>
                             <div class="process-body">
                                 <div class="process-icon-wrap"><i data-lucide="scan-line" class="process-icon"></i></div>
-                                <div class="process-title" id="step-1-title">全方位身體分析</div>
-                                <div class="process-desc" id="step-1-desc">InBody + 姿勢檢查，了解你的基礎數據，找出訓練方向。</div>
+                                <div class="process-title" id="step-1-title">數據深度剖析</div>
+                                <div class="process-desc" id="step-1-desc">透過 InBody 掌握肌肉與體脂比例，建立基礎數據。</div>
                             </div>
                         </div>
-                        <div class="process-step">
+                        <div class="process-step" data-step="2" data-icon="activity" data-title="3 大指標測試" data-desc="針對肌肉、心肺、柔軟度進行測試，找出訓練起點。">
                             <div class="process-num-wrap">
-                                <div class="process-num">2</div>
+                                <button type="button" class="process-num" data-step-btn="2" aria-label="Step 2">2</button>
                                 <div class="process-connector" aria-hidden="true"></div>
                             </div>
                             <div class="process-body">
                                 <div class="process-icon-wrap"><i data-lucide="activity" class="process-icon"></i></div>
-                                <div class="process-title" id="step-2-title">體能與動作測試</div>
-                                <div class="process-desc" id="step-2-desc">找出痛點、弱點、動作限制，訂立個人基準。</div>
+                                <div class="process-title" id="step-2-title">3 大指標測試</div>
+                                <div class="process-desc" id="step-2-desc">針對肌肉、心肺、柔軟度進行測試，找出訓練起點。</div>
                             </div>
                         </div>
-                        <div class="process-step">
+                        <div class="process-step" data-step="3" data-icon="message-circle" data-title="專屬目標對話" data-desc="了解你的目標與生活習慣，為你設立量身打造的訓練計劃。">
                             <div class="process-num-wrap">
-                                <div class="process-num">3</div>
+                                <button type="button" class="process-num" data-step-btn="3" aria-label="Step 3">3</button>
                                 <div class="process-connector" aria-hidden="true"></div>
                             </div>
                             <div class="process-body">
-                                <div class="process-icon-wrap"><i data-lucide="dumbbell" class="process-icon"></i></div>
-                                <div class="process-title" id="step-3-title">個人化全身鍛鍊</div>
-                                <div class="process-desc" id="step-3-desc">安全、簡單、有效的功能性動作訓練。</div>
+                                <div class="process-icon-wrap"><i data-lucide="message-circle" class="process-icon"></i></div>
+                                <div class="process-title" id="step-3-title">專屬目標對話</div>
+                                <div class="process-desc" id="step-3-desc">了解你的目標與生活習慣，為你設立量身打造的訓練計劃。</div>
                             </div>
                         </div>
-                        <div class="process-step">
+                        <div class="process-step" data-step="4" data-icon="user-check" data-title="正確姿勢導正" data-desc="Andrew 親自示範與指導，確保訓練動作安全且精準。">
                             <div class="process-num-wrap">
-                                <div class="process-num">4</div>
+                                <button type="button" class="process-num" data-step-btn="4" aria-label="Step 4">4</button>
+                                <div class="process-connector" aria-hidden="true"></div>
                             </div>
                             <div class="process-body">
-                                <div class="process-icon-wrap"><i data-lucide="calendar-check" class="process-icon"></i></div>
-                                <div class="process-title" id="step-4-title">21 週專屬訓練計劃</div>
-                                <div class="process-desc" id="step-4-desc">清晰路線圖，讓你持續進步、不再迷失方向。</div>
+                                <div class="process-icon-wrap"><i data-lucide="user-check" class="process-icon"></i></div>
+                                <div class="process-title" id="step-4-title">正確姿勢導正</div>
+                                <div class="process-desc" id="step-4-desc">Andrew 親自示範與指導，確保訓練動作安全且精準。</div>
                             </div>
                         </div>
+                        <div class="process-step" data-step="5" data-icon="zap" data-title="高效鍛鍊體驗" data-desc="感受肌肉發力與體能提升，體驗最適合你的運動強度。">
+                            <div class="process-num-wrap">
+                                <button type="button" class="process-num" data-step-btn="5" aria-label="Step 5">5</button>
+                                <div class="process-connector" aria-hidden="true"></div>
+                            </div>
+                            <div class="process-body">
+                                <div class="process-icon-wrap"><i data-lucide="zap" class="process-icon"></i></div>
+                                <div class="process-title" id="step-5-title">高效鍛鍊體驗</div>
+                                <div class="process-desc" id="step-5-desc">感受肌肉發力與體能提升，體驗最適合你的運動強度。</div>
+                            </div>
+                        </div>
+                        <div class="process-step" data-step="6" data-icon="map" data-title="領取 24 週循序漸進訓練藍圖" data-desc="獲得完整的半年訓練方向與專業建議，持續進步不迷失。">
+                            <div class="process-num-wrap">
+                                <button type="button" class="process-num" data-step-btn="6" aria-label="Step 6">6</button>
+                            </div>
+                            <div class="process-body">
+                                <div class="process-icon-wrap"><i data-lucide="map" class="process-icon"></i></div>
+                                <div class="process-title" id="step-6-title">領取 24 週循序漸進訓練藍圖</div>
+                                <div class="process-desc" id="step-6-desc">獲得完整的半年訓練方向與專業建議，持續進步不迷失。</div>
+                            </div>
+                        </div>
+                        <div class="process-body-display" id="process-body-display">
+                            <div class="process-icon-wrap"><i data-lucide="scan-line" class="process-icon"></i></div>
+                            <div class="process-title">數據深度剖析</div>
+                            <div class="process-desc">透過 InBody 掌握肌肉與體脂比例，建立基礎數據。</div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="process-image-wrap">
+                        <img src="./images/Andrew Hui GIF.gif" alt="Andrew Hui trial process" class="process-image" />
                     </div>
                 </div>
             </section>
-
-            <!-- ─── TRANSFORMATION ─── -->
             <section id="transformation" class="s-transform">
                 <div class="s-inner">
-                    <div class="s-label">你的改變</div>
-                    <h2 id="transform-headline" class="s-headline">你會感受到的改變</h2>
+                    <div class="s-label">預期蛻變 ✨</div>
+                    <h2 id="transform-headline" class="s-headline">半年後的你，將會感謝現在的決定</h2>
                     <div class="transform-layout">
                         <div class="transform-group">
                             <div class="transform-group-title-wrap">
                                 <i data-lucide="dumbbell" class="transform-group-icon"></i>
-                                <div class="transform-group-title">力量與穩定</div>
+                                <div class="transform-group-title">體態與線條 💎</div>
                             </div>
                             <div class="transform-list">
                                 <div class="transform-item">
                                     <i data-lucide="check-circle-2" class="transform-item-icon"></i>
-                                    <div id="transform-1" class="transform-item-text">更穩定、更有力量</div>
+                                    <div id="transform-1" class="transform-item-text">肌肉量穩步提升，身型線條更緊緻</div>
                                 </div>
                                 <div class="transform-item">
                                     <i data-lucide="check-circle-2" class="transform-item-icon"></i>
-                                    <div id="transform-2" class="transform-item-text">腰肩不適明顯減輕</div>
+                                    <div id="transform-2" class="transform-item-text">體脂肪率改善，視覺體態更精實</div>
                                 </div>
                             </div>
                         </div>
@@ -200,20 +222,20 @@
                         <div class="transform-group">
                             <div class="transform-group-title-wrap">
                                 <i data-lucide="sparkles" class="transform-group-icon"></i>
-                                <div class="transform-group-title">體態與控制感</div>
+                                <div class="transform-group-title">體能與控制 ⚡</div>
                             </div>
                             <div class="transform-list">
                                 <div class="transform-item">
                                     <i data-lucide="check-circle-2" class="transform-item-icon"></i>
-                                    <div id="transform-3" class="transform-item-text">體態更挺拔、更精神</div>
+                                    <div id="transform-3" class="transform-item-text">體力與精神提升，日常充滿活力</div>
                                 </div>
                                 <div class="transform-item">
                                     <i data-lucide="check-circle-2" class="transform-item-icon"></i>
-                                    <div id="transform-4" class="transform-item-text">動作更順、更有控制</div>
+                                    <div id="transform-4" class="transform-item-text">柔軟度大幅改善，活動更輕鬆自如</div>
                                 </div>
                                 <div class="transform-item">
                                     <i data-lucide="check-circle-2" class="transform-item-icon"></i>
-                                    <div id="transform-5" class="transform-item-text">訓練更輕鬆、可持續</div>
+                                    <div id="transform-5" class="transform-item-text">養成受用一生的運動習慣與健康觀念</div>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +313,7 @@
                             <div class="footer-logo-mark">AH</div>
                             <div>
                                 <div class="footer-name">Andrew Hui</div>
-                                <div class="footer-sub">火炭 1 對 1 功能性訓練</div>
+                                <div id="footer-sub" class="footer-sub">火炭 1 對 1 增肌減脂塑形</div>
                             </div>
                         </div>
                         <div class="footer-contact-grid">
@@ -649,6 +671,10 @@
                 step3_desc: '#step-3-desc',
                 step4_title: '#step-4-title',
                 step4_desc: '#step-4-desc',
+                step5_title: '#step-5-title',
+                step5_desc: '#step-5-desc',
+                step6_title: '#step-6-title',
+                step6_desc: '#step-6-desc',
                 transform_label: '#transformation .s-label',
                 transform_title: '#transform-headline',
                 transform_group1_title: '.transform-group:nth-child(1) .transform-group-title',
@@ -670,7 +696,12 @@
                 faq_q6: '#faq-q-5',
                 faq_a6: '#faq-a-5',
                 footer_name: '.footer-name',
-                footer_sub: '.footer-sub',
+                footer_sub: '#footer-sub',
+                trust_badge_1: '#trust-badge-1',
+                trust_badge_2: '#trust-badge-2',
+                trust_badge_3: '#trust-badge-3',
+                trust_badge_4: '#trust-badge-4',
+                trust_badge_5: '#trust-badge-5',
                 footer_location_label: '.footer-contact-item:nth-child(1) .footer-contact-label',
                 footer_location: '#footer-location',
                 footer_instagram_label: '.footer-contact-item:nth-child(2) .footer-contact-label',
@@ -1043,10 +1074,82 @@
 
         renderFooterCopyright();
 
+        // Handle process step tabs on desktop
+        let currentContent = null; // Store loaded content globally
+        const initProcessTabs = () => {
+            // Only apply tab behavior on desktop (1024px+)
+            if (window.innerWidth >= 1024) {
+                // Set first step as active on load
+                const firstStep = document.querySelector('[data-step="1"]');
+                const firstBtn = document.querySelector('[data-step-btn="1"]');
+                if (firstStep && !firstStep.classList.contains('active')) {
+                    firstStep.classList.add('active');
+                    updateProcessBodyDisplay(firstStep, currentContent);
+                }
+                if (firstBtn && !firstBtn.classList.contains('active')) {
+                    firstBtn.classList.add('active');
+                }
+
+                // Handle button clicks
+                document.querySelectorAll('[data-step-btn]').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const stepNum = button.getAttribute('data-step-btn');
+                        
+                        // Remove active class from all steps and buttons
+                        document.querySelectorAll('.process-step').forEach(step => {
+                            step.classList.remove('active');
+                        });
+                        document.querySelectorAll('[data-step-btn]').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        
+                        // Add active class to clicked step and button
+                        const targetStep = document.querySelector(`[data-step="${stepNum}"]`);
+                        if (targetStep) {
+                            targetStep.classList.add('active');
+                            updateProcessBodyDisplay(targetStep, currentContent);
+                        }
+                        button.classList.add('active');
+                    });
+                });
+            }
+        };
+
+        const updateProcessBodyDisplay = (step, contentObj) => {
+            const display = document.getElementById('process-body-display');
+            if (!display) return;
+            
+            const stepNum = step.getAttribute('data-step');
+            const icon = step.getAttribute('data-icon');
+            
+            // Fetch title and desc from content.json (with fallback to HTML attributes)
+            const title = contentObj ? contentObj[`step${stepNum}_title`] : step.getAttribute('data-title');
+            const desc = contentObj ? contentObj[`step${stepNum}_desc`] : step.getAttribute('data-desc');
+            
+            display.innerHTML = `
+                <div class="process-icon-wrap"><i data-lucide="${icon}" class="process-icon"></i></div>
+                <div class="process-title">${title}</div>
+                <div class="process-desc">${desc}</div>
+            `;
+            
+            // Re-render lucide icons
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        };
+
         (async () => {
             const content = await loadContent();
-            if (content) applyContent(content);
+            if (content) {
+                currentContent = content; // Store content for process tabs
+                applyContent(content);
+            }
+            initProcessTabs();
         })();
+        
+        // Re-initialize on window resize
+        window.addEventListener('resize', initProcessTabs);
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
