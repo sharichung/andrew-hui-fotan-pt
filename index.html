@@ -369,14 +369,12 @@
                 </div>
 
                 <div id="step-1" class="step-content">
-                    <h3 id="lead-modal-title" class="lead-title">你的主要目標是？</h3>
-                    <p class="lead-subtitle">選擇一個最符合你情況的選項</p>
+                    <h3 id="lead-modal-title" class="lead-title">你想改善邊方面多啲？📈</h3>
+                    <p class="lead-subtitle">(多重選擇)</p>
                     <div id="goals" class="option-list">
-                        <button type="button" class="radio-option" data-goal="減脂"><span class="radio-dot"><span class="dot"></span></span><span>減脂</span></button>
-                        <button type="button" class="radio-option" data-goal="增肌"><span class="radio-dot"><span class="dot"></span></span><span>增肌</span></button>
-                        <button type="button" class="radio-option" data-goal="改善姿勢 / 痛症"><span class="radio-dot"><span class="dot"></span></span><span>改善姿勢 / 痛症</span></button>
-                        <button type="button" class="radio-option" data-goal="變 fit、變健康"><span class="radio-dot"><span class="dot"></span></span><span>變 fit、變健康</span></button>
-                        <button type="button" class="radio-option" data-goal="初學者想開始運動"><span class="radio-dot"><span class="dot"></span></span><span>初學者想開始運動</span></button>
+                        <button type="button" class="radio-option" data-goal="減脂、體態塑形 (想線條好睇啲) 💎"><span class="radio-dot"><span class="dot"></span></span><span>減脂、體態塑形 (想線條好睇啲) 💎</span></button>
+                        <button type="button" class="radio-option" data-goal="增加肌肉、提升力量 (想大隻啲/有力啲) 💪"><span class="radio-dot"><span class="dot"></span></span><span>增加肌肉、提升力量 (想大隻啲/有力啲) 💪</span></button>
+                        <button type="button" class="radio-option" data-goal="改善姿勢、減少痠痛 (想身體健康啲) ⚖️"><span class="radio-dot"><span class="dot"></span></span><span>改善姿勢、減少痠痛 (想身體健康啲) ⚖️</span></button>
                     </div>
                     <button type="button" id="next-1" class="lead-submit" disabled>下一步 →</button>
                 </div>
@@ -741,8 +739,6 @@
             setOptionLabel('#goals .radio-option:nth-child(1)', content.form_goal_option_1, 'goal');
             setOptionLabel('#goals .radio-option:nth-child(2)', content.form_goal_option_2, 'goal');
             setOptionLabel('#goals .radio-option:nth-child(3)', content.form_goal_option_3, 'goal');
-            setOptionLabel('#goals .radio-option:nth-child(4)', content.form_goal_option_4, 'goal');
-            setOptionLabel('#goals .radio-option:nth-child(5)', content.form_goal_option_5, 'goal');
 
             setOptionLabel('#times .radio-option:nth-child(1)', content.form_time_option_1, 'time');
             setOptionLabel('#times .radio-option:nth-child(2)', content.form_time_option_2, 'time');
@@ -816,8 +812,10 @@
         }
 
         function getSelectedValue(selector, attrName) {
-            const selected = document.querySelector(`${selector} .radio-option.selected`);
-            return selected ? (selected.dataset[attrName] || '') : '';
+            const selected = Array.from(document.querySelectorAll(`${selector} .radio-option.selected`))
+                .map(option => option.dataset[attrName] || '')
+                .filter(Boolean);
+            return selected.join('、');
         }
 
         async function postLeadToMake(data) {
@@ -923,10 +921,20 @@
         }
 
         function selectOption(type, button, value) {
-            if (type === 'goal') leadData.goal = value;
+            const parent = button.parentElement;
+
+            if (type === 'goal') {
+                const isSelected = button.classList.toggle('selected');
+                const dot = button.querySelector('.dot');
+                if (dot) dot.style.transform = isSelected ? 'scale(1)' : 'scale(0)';
+
+                leadData.goal = getSelectedValue('#goals', 'goal');
+                document.getElementById('next-1').disabled = !leadData.goal;
+                return;
+            }
+
             if (type === 'preferredTime') leadData.preferredTime = value;
 
-            const parent = button.parentElement;
             parent.querySelectorAll('.radio-option').forEach(opt => {
                 opt.classList.remove('selected');
                 const dot = opt.querySelector('.dot');
@@ -936,7 +944,6 @@
             const dot = button.querySelector('.dot');
             if (dot) dot.style.transform = 'scale(1)';
 
-            if (type === 'goal') document.getElementById('next-1').disabled = false;
             if (type === 'preferredTime') document.getElementById('next-2').disabled = false;
         }
 
