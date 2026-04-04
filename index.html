@@ -380,12 +380,13 @@
                 </div>
 
                 <div id="step-2" class="step-content hidden">
-                    <h3 class="lead-title">你最方便的訓練時間？</h3>
-                    <p class="lead-subtitle">選擇一個時間段</p>
+                    <h3 class="lead-title">邊段時間比較方便過嚟銀禧會上堂？🕒</h3>
+                    <p class="lead-subtitle">(多重選擇)</p>
                     <div id="times" class="option-list">
-                        <button type="button" class="radio-option" data-time="平日"><span class="radio-dot"><span class="dot"></span></span><span>平日</span></button>
-                        <button type="button" class="radio-option" data-time="週末"><span class="radio-dot"><span class="dot"></span></span><span>週末</span></button>
-                        <button type="button" class="radio-option" data-time="平日或週末都可以"><span class="radio-dot"><span class="dot"></span></span><span>平日或週末都可以</span></button>
+                        <button type="button" class="radio-option" data-time="平日日間 ☀️"><span class="radio-dot"><span class="dot"></span></span><span>平日日間 ☀️</span></button>
+                        <button type="button" class="radio-option" data-time="平日晚間 🌙"><span class="radio-dot"><span class="dot"></span></span><span>平日晚間 🌙</span></button>
+                        <button type="button" class="radio-option" data-time="週末 / 公眾假期 📅"><span class="radio-dot"><span class="dot"></span></span><span>週末 / 公眾假期 📅</span></button>
+                        <button type="button" class="radio-option" data-time="時間靈活，再同 Andrew 夾 🤝"><span class="radio-dot"><span class="dot"></span></span><span>時間靈活，再同 Andrew 夾 🤝</span></button>
                     </div>
                     <div class="step-actions">
                         <button type="button" id="back-2" class="step-ghost">← 上一步</button>
@@ -394,12 +395,16 @@
                 </div>
 
                 <div id="step-3" class="step-content hidden">
-                    <h3 class="lead-title">你希望 Andrew 點樣協助你？</h3>
-                    <p class="lead-subtitle">簡單描述你的情況或需要</p>
-                    <textarea id="user-note" class="lead-input lead-textarea" rows="4" placeholder="例如：我成日腰痛，想改善姿勢同核心力量..."></textarea>
+                    <h3 class="lead-title">你最快想幾時開始第一次體驗？🏃‍♂️</h3>
+                    <p class="lead-subtitle">(多重選擇)</p>
+                    <div id="start-options" class="option-list">
+                        <button type="button" class="radio-option" data-start="呢個禮拜內 (想即刻變強) 🔥"><span class="radio-dot"><span class="dot"></span></span><span>呢個禮拜內 (想即刻變強) 🔥</span></button>
+                        <button type="button" class="radio-option" data-start="兩星期內 📅"><span class="radio-dot"><span class="dot"></span></span><span>兩星期內 📅</span></button>
+                        <button type="button" class="radio-option" data-start="仲諗緊，想了解吓先 💬"><span class="radio-dot"><span class="dot"></span></span><span>仲諗緊，想了解吓先 💬</span></button>
+                    </div>
                     <div class="step-actions">
                         <button type="button" id="back-3" class="step-ghost">← 上一步</button>
-                        <button type="button" id="submit-btn" class="lead-submit">提交 →</button>
+                        <button type="button" id="submit-btn" class="lead-submit" disabled>提交 →</button>
                     </div>
                 </div>
 
@@ -729,7 +734,6 @@
             setTextBySelectors('#step-3 .lead-subtitle', content.form_step3_subtitle);
             setTextBySelectors('#back-3', content.form_back_3);
             setTextBySelectors('#submit-btn', content.form_submit);
-            setAttrBySelectors('#user-note', 'placeholder', content.form_note_placeholder);
 
             setTextBySelectors('#step-success .lead-title', content.form_success_title);
             setTextBySelectors('#step-success .lead-subtitle', content.form_success_subtitle);
@@ -743,6 +747,11 @@
             setOptionLabel('#times .radio-option:nth-child(1)', content.form_time_option_1, 'time');
             setOptionLabel('#times .radio-option:nth-child(2)', content.form_time_option_2, 'time');
             setOptionLabel('#times .radio-option:nth-child(3)', content.form_time_option_3, 'time');
+            setOptionLabel('#times .radio-option:nth-child(4)', content.form_time_option_4, 'time');
+
+            setOptionLabel('#start-options .radio-option:nth-child(1)', content.form_start_option_1, 'start');
+            setOptionLabel('#start-options .radio-option:nth-child(2)', content.form_start_option_2, 'start');
+            setOptionLabel('#start-options .radio-option:nth-child(3)', content.form_start_option_3, 'start');
 
             renderFooterCopyright(content.footer_copyright);
         }
@@ -782,11 +791,12 @@
             leadData.preferredTime = '';
             leadData.note = '';
             leadData.source = '';
-            document.getElementById('user-note').value = '';
             document.getElementById('next-1').disabled = true;
             document.getElementById('next-2').disabled = true;
+            document.getElementById('submit-btn').disabled = true;
             document.querySelectorAll('.radio-option').forEach(el => {
                 el.classList.remove('selected');
+                el.setAttribute('aria-pressed', 'false');
                 const dot = el.querySelector('.dot');
                 if (dot) dot.style.transform = 'scale(0)';
             });
@@ -797,9 +807,9 @@
                 '你好 Andrew，我想預約 $200 首次體驗課。',
                 '',
                 `Lead ID：${leadData.leadId || '未提供'}`,
-                `我的主要目標是：${leadData.goal || '未提供'}`,
-                `最方便的訓練時間：${leadData.preferredTime || '未提供'}`,
-                `我的情況／困難：${leadData.note || '未提供'}`,
+                `想改善重點：${leadData.goal || '未提供'}`,
+                `方便上堂時間：${leadData.preferredTime || '未提供'}`,
+                `最快想開始：${leadData.note || '未提供'}`,
                 '',
                 '請問可以點安排？謝謝！'
             ].join('\n');
@@ -921,30 +931,30 @@
         }
 
         function selectOption(type, button, value) {
-            const parent = button.parentElement;
+            const selectorMap = {
+                goal: '#goals',
+                preferredTime: '#times',
+                note: '#start-options'
+            };
+            const attrMap = {
+                goal: 'goal',
+                preferredTime: 'time',
+                note: 'start'
+            };
+            const actionButtonMap = {
+                goal: 'next-1',
+                preferredTime: 'next-2',
+                note: 'submit-btn'
+            };
 
-            if (type === 'goal') {
-                const isSelected = button.classList.toggle('selected');
-                const dot = button.querySelector('.dot');
-                if (dot) dot.style.transform = isSelected ? 'scale(1)' : 'scale(0)';
+            const isSelected = button.classList.toggle('selected');
+            button.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
 
-                leadData.goal = getSelectedValue('#goals', 'goal');
-                document.getElementById('next-1').disabled = !leadData.goal;
-                return;
-            }
-
-            if (type === 'preferredTime') leadData.preferredTime = value;
-
-            parent.querySelectorAll('.radio-option').forEach(opt => {
-                opt.classList.remove('selected');
-                const dot = opt.querySelector('.dot');
-                if (dot) dot.style.transform = 'scale(0)';
-            });
-            button.classList.add('selected');
             const dot = button.querySelector('.dot');
-            if (dot) dot.style.transform = 'scale(1)';
+            if (dot) dot.style.transform = isSelected ? 'scale(1)' : 'scale(0)';
 
-            if (type === 'preferredTime') document.getElementById('next-2').disabled = false;
+            leadData[type] = getSelectedValue(selectorMap[type], attrMap[type]);
+            document.getElementById(actionButtonMap[type]).disabled = !leadData[type];
         }
 
         function goToStep(step) {
@@ -979,6 +989,9 @@
         document.querySelectorAll('#times .radio-option').forEach(btn => {
             btn.addEventListener('click', () => selectOption('preferredTime', btn, btn.dataset.time));
         });
+        document.querySelectorAll('#start-options .radio-option').forEach(btn => {
+            btn.addEventListener('click', () => selectOption('note', btn, btn.dataset.start));
+        });
 
         document.getElementById('next-1').addEventListener('click', () => goToStep(2));
         document.getElementById('next-2').addEventListener('click', () => goToStep(3));
@@ -999,7 +1012,7 @@
             leadData.leadId = `lead_${Date.now()}`;
             leadData.goal = leadData.goal || getSelectedValue('#goals', 'goal');
             leadData.preferredTime = leadData.preferredTime || getSelectedValue('#times', 'time');
-            leadData.note = document.getElementById('user-note').value.trim();
+            leadData.note = leadData.note || getSelectedValue('#start-options', 'start');
             leadData.source = getUTMSource();
 
             console.log('[Lead] Prepared leadData:', leadData);
