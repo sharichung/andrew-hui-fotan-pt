@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260404-2">
 </head>
 
 <body class="h-full font-noto">
@@ -797,8 +797,6 @@
             document.querySelectorAll('.radio-option').forEach(el => {
                 el.classList.remove('selected');
                 el.setAttribute('aria-pressed', 'false');
-                const dot = el.querySelector('.dot');
-                if (dot) dot.style.transform = 'scale(0)';
             });
         }
 
@@ -949,9 +947,6 @@
 
             const isSelected = button.classList.toggle('selected');
             button.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
-
-            const dot = button.querySelector('.dot');
-            if (dot) dot.style.transform = isSelected ? 'scale(1)' : 'scale(0)';
 
             leadData[type] = getSelectedValue(selectorMap[type], attrMap[type]);
             document.getElementById(actionButtonMap[type]).disabled = !leadData[type];

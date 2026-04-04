@@ -1060,28 +1060,36 @@ body {
 	width: 20px;
 	height: 20px;
 	margin-top: 0.05rem;
-	border-radius: 0.35rem;
+	border-radius: 0.28rem;
 	border: 2px solid rgba(255, 255, 255, 0.28);
 	background: rgba(255,255,255,0.03);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	flex-shrink: 0;
-	transition: border-color 0.2s ease, background 0.2s ease;
+	transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .radio-option.selected .radio-dot {
 	border-color: var(--brand-primary);
-	background: rgba(94, 189, 181, 0.14);
+	background: var(--brand-primary);
+	box-shadow: 0 0 0 3px rgba(94, 189, 181, 0.16);
 }
 
 .dot {
 	width: 10px;
-	height: 10px;
-	border-radius: 0.2rem;
-	background: var(--brand-primary);
-	transform: scale(0);
+	height: 6px;
+	border-left: 2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
+	background: transparent;
+	border-radius: 0;
+	transform: translateY(-1px) rotate(-45deg) scale(0);
+	transform-origin: center;
 	transition: transform 0.2s ease;
+}
+
+.radio-option.selected .dot {
+	transform: translateY(-1px) rotate(-45deg) scale(1);
 }
 
 .step-actions {
