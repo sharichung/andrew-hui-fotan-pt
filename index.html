@@ -8,7 +8,6 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-    <script src="/_sdk/element_sdk.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap"
         rel="stylesheet">
@@ -457,43 +456,6 @@
             ['el-trust-1', 'el-trust-2', 'el-trust-3', 'el-trust-4'].forEach((id, idx) => {
                 const node = document.getElementById(id);
                 if (node && trustItems[idx]) node.textContent = trustItems[idx];
-            });
-        }
-
-        if (window.elementSdk && typeof window.elementSdk.init === 'function') {
-            window.elementSdk.init({
-                defaultConfig,
-                onConfigChange: async (config) => applyConfig(config),
-                mapToCapabilities: (config) => {
-                    const c = key => config[key] || defaultConfig[key];
-                    const mut = (key) => ({
-                        get: () => c(key),
-                        set: (v) => {
-                            config[key] = v;
-                            window.elementSdk.setConfig({
-                                [key]: v
-                            });
-                        }
-                    });
-                    return {
-                            recolorables: [
-                                mut('background_color')
-                            ],
-                        borderables: [],
-                            fontEditable: null,
-                            fontSizeable: null
-                    };
-                },
-                mapToEditPanelValues: (config) => {
-                    const c = key => config[key] || defaultConfig[key];
-                    return new Map([
-                        ['headline', c('headline')],
-                        ['subheadline', c('subheadline')],
-                        ['cta_text', c('cta_text')],
-                        ['cta_subtext', c('cta_subtext')],
-                        ['trust_text', c('trust_text')]
-                    ]);
-                }
             });
         }
 
