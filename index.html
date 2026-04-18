@@ -5,6 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Hui 火炭1對1增肌減脂塑形</title>
+    <script>
+        // Compatibility shim: some embedded browsers expect an iOS bridge object.
+        (function () {
+            const noopHandler = {
+                postMessage: function () {}
+            };
+
+            if (!window.webkit) {
+                window.webkit = {};
+            }
+
+            if (!window.webkit.messageHandlers) {
+                try {
+                    window.webkit.messageHandlers = new Proxy({}, {
+                        get(target, prop) {
+                            if (Object.prototype.hasOwnProperty.call(target, prop)) {
+                                return target[prop];
+                            }
+                            return noopHandler;
+                        },
+                        set(target, prop, value) {
+                            target[prop] = value;
+                            return true;
+                        }
+                    });
+                } catch (error) {
+                    window.webkit.messageHandlers = {};
+                }
+            }
+        })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
