@@ -426,7 +426,13 @@
     </div>
 
     <script>
-        lucide.createIcons();
+        function safeCreateIcons() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+        }
+
+        safeCreateIcons();
 
         const defaultConfig = {
             headline: '忙到冇時間運動？腰痛、肩痛、體態走樣？',
@@ -745,7 +751,7 @@
             document.body.style.overflow = 'hidden';
             resetForm();
             goToStep(1);
-            lucide.createIcons();
+            safeCreateIcons();
         }
 
         function closeModal() {
@@ -988,7 +994,7 @@
                 document.getElementById('wa-link').href = buildWhatsAppLink();
                 goToStep('success');
                 spawnConfetti();
-                lucide.createIcons();
+                safeCreateIcons();
                 console.log('[Lead] Lead posted successfully and moved to success step');
             } else {
                 console.error('[Lead] Lead post failed, staying on step 3');
@@ -1120,9 +1126,7 @@
             `;
             
             // Re-render lucide icons
-            if (window.lucide) {
-                window.lucide.createIcons();
-            }
+            safeCreateIcons();
         };
 
         (async () => {
@@ -1138,7 +1142,7 @@
         window.addEventListener('resize', initProcessTabs);
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+            if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) closeModal();
         });
     </script>
 </body>
