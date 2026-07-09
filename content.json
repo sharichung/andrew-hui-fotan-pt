@@ -47,10 +47,10 @@
     "step3_title": "直擊核心需求",
     "step3_desc": "了解你的目標與生活習慣，為你設立量身打造的訓練計劃。",
     "step4_title": "正確姿勢導正",
-    "step4_desc": "Andrew 親自示範與指導，確保訓練動作安全且精準。",
+    "step4_desc": "Andrew 親自示範與指導，確保訓練動作安全。",
     "step5_title": "高效鍛鍊指導",
-    "step5_desc": "感受肌肉發力與體能提升，体验最適合你的運動強度。",
-    "step6_title": "領取 24 週訓練藍圖",
+    "step5_desc": "感受肌肉發力與體能提升，符合你的運動強度。",
+    "step6_title": "領取 24 週訓練計劃",
     "step6_desc": "獲得完整的半年訓練方向與專業建議，持續進步不迷失。",
  
     "transform_label": "預期蛻變 ✨",
@@ -96,7 +96,7 @@
     "form_step1_subtitle": "(可多選)",
     "form_goal_option_1": "減脂、體態塑形 (想線條好睇啲) 💎",
     "form_goal_option_2": "增加肌肉、提升力量 (想有力同大隻啲) 💪",
-    "form_goal_option_3": "改善姿勢、減少痠痛 (想行少啲彎路) ⚖️",
+    "form_goal_option_3": "改善姿勢、減少痠痛 (想身體健康啲) ⚖️",
     "form_next_1": "下一步 →",
  
     "form_step2_title": "邊個時段比較方便過嚟銀禧薈上堂？🕒",
@@ -108,7 +108,7 @@
     "form_back_2": "← 上一步",
     "form_next_2": "下一步 →",
  
-    "form_step3_title": "你最快想幾時開始第一次一對一指導？運行🏃‍♂️",
+    "form_step3_title": "你最快想幾時開始第一次一對一指導？🏃‍♂️",
     "form_step3_subtitle": "(可多選)",
     "form_start_option_1": "呢個禮拜內 🔥",
     "form_start_option_2": "兩星期內 📅",
