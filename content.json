@@ -6,9 +6,9 @@
     "hero_tagline": "📍火炭銀禧薈｜1對1增肌減脂塑形",
     "hero_title": "24 週變身，找回最強體態",
     "hero_title_emphasis_words": "24 週變身",
-    "hero_subtitle": "適合初學者、忙碌上班族、火炭及沙田居民。融合「肌肉、心肺、柔軟度」3 大核心指標，用最科學方式幫你增肌減脂，重塑健康身型。💪",
-    "hero_cta": "立即預約 $200 體驗課 →",
-    "hero_cta_sub": "原價 $880｜名額有限 ⏳",
+    "hero_subtitle": "適合初學者、忙碌上班族、火炭及沙田居民。同步幫你強化肌肉力量、體能同身體柔軟度，帶你掌握最安全嘅動作發力，重塑緊緻身型。💪",
+    "hero_cta": "立即預約 $200 一對一指導課 →",
+    "hero_cta_sub": "明碼實價｜包場免場地費 🏢",
     "hero_benefit_title": "報名獲得 🎁",
     "hero_benefit_1": "InBody 身體組成分析",
     "hero_benefit_2": "3 大健康指標測試",
@@ -16,7 +16,7 @@
     "hero_benefit_4": "24 週 (半年) 個人化增肌減脂藍圖",
 
     "section1_label": "為什麼選擇 Andrew Hui 🎯",
-    "section1_title": "專為您打造健康可持續體態的專家",
+    "section1_title": "專為你建立長遠、可持續體態嘅導師",
     "section1_point1_title": "高效增肌減脂 📈",
     "section1_point1": "透過週期性重量訓練，精準提升代謝率，打造充滿活力的體質。",
     "section1_point2_title": "健康 3 大元素 ⚖️",
@@ -38,7 +38,7 @@
     "trust_badge_4": "營養建議配套",
     "trust_badge_5": "火炭在地多年教學",
 
-    "process_label": "60 分鐘體驗流程 🛠️",
+    "process_label": "60 分鐘一對一指導流程 🛠️",
     "process_title": "與 Andrew 一起，用六個步驟重塑你的身體",
     "step1_title": "數據深度剖析",
     "step1_desc": "透過 InBody 掌握肌肉與體脂比例，建立基礎數據。",
@@ -48,7 +48,7 @@
     "step3_desc": "了解你的目標與生活習慣，為你設立量身打造的訓練計劃。",
     "step4_title": "正確姿勢導正",
     "step4_desc": "Andrew 親自示範與指導，確保訓練動作安全且精準。",
-    "step5_title": "高效鍛鍊體驗",
+    "step5_title": "高效鍛鍊指導",
     "step5_desc": "感受肌肉發力與體能提升，體驗最適合你的運動強度。",
     "step6_title": "領取 24 週訓練藍圖",
     "step6_desc": "獲得完整的半年訓練方向與專業建議，持續進步不迷失。",
@@ -62,7 +62,7 @@
     "transform_item3": "體力與精神提升，日常充滿活力",
     "transform_item4": "柔軟度大幅改善，活動更輕鬆自如",
     "transform_item5": "養成受用一生的運動習慣與健康觀念",
-    "transform_cta": "立即預約 $200 體驗課程 →",
+    "transform_cta": "立即預約 $200 一對一指導課 →",
     "transform_cta_sub": "名額有限，火炭銀禧薈現場教學 🏢",
 
     "faq_label": "常見問題",
@@ -72,11 +72,11 @@
     "faq_q2": "我有腰痛／膝痛，可以訓練嗎？",
     "faq_a2": "可以，會按你的情況調整動作，以康復為優先。",
     "faq_q3": "會唔會好辛苦？",
-    "faq_a3": "唔會，強度完全按你能力設定，以舒快嬲適、可持續為目標。",
+    "faq_a3": "唔會，強度完全按你能力設定，以舒服適應、可持續為目標。",
     "faq_q4": "需要綁約嗎？",
-    "faq_a4": "唔需要，體驗後自由決定是否繼續。",
+    "faq_a4": "唔需要，上完一對一指導課後自由決定是否繼續。",
     "faq_q5": "1 對 1 同 1 對 2 有咩分別？",
-    "faq_a5": "1 對 1 個人化最高，專注度最佳；1 對 2 更划算、氣氛更輕鬆。",
+    "faq_a5": "1 對 1 個人化最高，專注度最佳；1 對 2 更劃算、氣氛更輕鬆。",
     "faq_q6": "需要帶咩？",
     "faq_a6": "運動服、運動鞋、水即可，其他器材我哋會提供。",
 
@@ -88,7 +88,7 @@
     "footer_instagram": "@andrewcoach1013",
     "footer_hours_label": "營業時間",
     "footer_hours": "Mon – Sun｜10:00 – 22:00",
-    "footer_cta": "立即預約 $200 體驗課 →",
+    "footer_cta": "立即預約 $200 一對一指導課 →",
     "footer_cta_sub": "WhatsApp 即時聯絡 · 名額有限",
     "footer_copyright": "Andrew Hui Personal Training. All rights reserved.",
 
@@ -99,7 +99,7 @@
     "form_goal_option_3": "改善姿勢、減少痠痛 (想身體健康啲) ⚖️",
     "form_next_1": "下一步 →",
 
-    "form_step2_title": "邊段時間比較方便過嚟銀禧會上堂？🕒",
+    "form_step2_title": "邊段時間比較方便過嚟銀禧薈上堂？🕒",
     "form_step2_subtitle": "(多重選擇)",
     "form_time_option_1": "平日日間 ☀️",
     "form_time_option_2": "平日晚間 🌙",
@@ -108,7 +108,7 @@
     "form_back_2": "← 上一步",
     "form_next_2": "下一步 →",
 
-    "form_step3_title": "你最快想幾時開始第一次體驗？🏃‍♂️",
+    "form_step3_title": "你最快想幾時開始第一次一對一指導？🏃‍♂️",
     "form_step3_subtitle": "(多重選擇)",
     "form_start_option_1": "呢個禮拜內 🔥",
     "form_start_option_2": "兩星期內 📅",
@@ -117,6 +117,6 @@
     "form_submit": "提交 →",
 
     "form_success_title": "差一步就完成預約！改變已經開始 ✨",
-    "form_success_subtitle": "直接撳下面個掣搵我先啦！👇 我會喺 24 小時內親自 WhatsApp 你夾試堂時間。放心，我最唔鍾意 Hard-sell，試堂純粹係想等你可以親身體驗下教學質素，之後再按你目標畀最誠實嘅建議你。💪",
-    "form_whatsapp_cta": "WhatsApp 傳送並預約體驗課"
+    "form_success_subtitle": "直接撳下面個掣搵我先啦！👇 我會喺 24 小時內親自 WhatsApp 你安排一對一指導時段。放心，我最唔鍾意 Hard-sell，呢堂純粹係想等你可以親身體驗下教學質素，之後再按你目標畀最誠實嘅建議你。💪",
+    "form_whatsapp_cta": "WhatsApp 傳送並預約一對一指導課"
 }
