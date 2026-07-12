@@ -439,6 +439,18 @@
                         <button type="button" class="radio-option" data-start="兩星期內 📅"><span class="radio-dot"><span class="dot"></span></span><span>兩星期內 📅</span></button>
                         <button type="button" class="radio-option" data-start="仲諗緊，想了解吓先 💬"><span class="radio-dot"><span class="dot"></span></span><span>仲諗緊，想了解吓先 💬</span></button>
                     </div>
+                    <div class="wa-input-wrap" style="margin-top:1rem;">
+                        <label for="wa-number" style="display:block;font-size:0.85rem;margin-bottom:0.4rem;opacity:0.75;color: rgba(255, 255, 255, 0.6);">你嘅 WhatsApp 號碼（選填）📱</label>
+                        <input
+                            type="tel"
+                            id="wa-number"
+                            placeholder="例：91234567"
+                            maxlength="8"
+                            pattern="[0-9]{8}"
+                            style="width:100%;padding:0.7rem 1rem;border-radius:0.75rem;border:1.5px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:inherit;font-size:1rem;outline:none;box-sizing:border-box;"
+                        />
+                        <p style="font-size:0.72rem;opacity:0.5;margin-top:0.3rem;color: rgba(255, 255, 255, 0.6);">如果唔方便撳 WhatsApp，Andrew 可以主動聯絡你</p>
+                    </div>
                     <div class="step-actions">
                         <button type="button" id="back-3" class="step-ghost">← 上一步</button>
                         <button type="button" id="submit-btn" class="lead-submit" disabled>提交 →</button>
@@ -797,9 +809,12 @@
             leadData.preferredTime = '';
             leadData.note = '';
             leadData.source = '';
+            leadData.waNumber = '';
             document.getElementById('next-1').disabled = true;
             document.getElementById('next-2').disabled = true;
             document.getElementById('submit-btn').disabled = true;
+            const waInput = document.getElementById('wa-number');
+            if (waInput) waInput.value = '';
             document.querySelectorAll('.radio-option').forEach(el => {
                 el.classList.remove('selected');
                 el.setAttribute('aria-pressed', 'false');
@@ -807,14 +822,16 @@
         }
 
         function buildWhatsAppLink() {
+            const waNumber = (document.getElementById('wa-number')?.value || '').trim();
             const text = [
                 '你好 Andrew，我想預約 $200 首次體驗課。',
                 `Lead ID：${leadData.leadId || '未提供'}`,
-                ``,
+                '',
                 '請核對下面嘅資料，Andrew 收到後會喺 24 小時內 WhatsApp 聯絡你預約。📩',
                 `想改善重點：${leadData.goal || '未提供'}`,
                 `方便上堂時間：${leadData.preferredTime || '未提供'}`,
                 `最快想開始：${leadData.note || '未提供'}`,
+                `WhatsApp 號碼：${waNumber || '未提供'}`,
                 '',
                 '請問可以點安排？謝謝！'
             ].join('\n');
@@ -841,7 +858,8 @@
                 goal: data.goal || '',
                 preferredTime: data.preferredTime || '',
                 note: data.note || '',
-                source: data.source || ''
+                source: data.source || '',
+                waNumber: data.waNumber || ''
             };
 
             console.log('[Lead] Posting lead data to Make webhook:', payload);
@@ -1016,17 +1034,24 @@
             leadData.preferredTime = leadData.preferredTime || getSelectedValue('#times', 'time');
             leadData.note = leadData.note || getSelectedValue('#start-options', 'start');
             leadData.source = getUTMSource();
+            leadData.waNumber = (document.getElementById('wa-number')?.value || '').trim();
 
             console.log('[Lead] Prepared leadData:', leadData);
 
             const ok = await postLeadToMake(leadData);
 
             if (ok) {
-                document.getElementById('wa-link').href = buildWhatsAppLink();
+                const waHref = buildWhatsAppLink();
+                document.getElementById('wa-link').href = waHref;
+                postWhatsAppLeadId(leadData.leadId);
+                // 自動彈 WhatsApp，setTimeout 繞過 Safari popup blocker
+                setTimeout(() => {
+                    window.open(waHref, '_blank', 'noopener,noreferrer');
+                }, 150);
                 goToStep('success');
                 spawnConfetti();
                 safeCreateIcons();
-                console.log('[Lead] Lead posted successfully and moved to success step');
+                console.log('[Lead] Lead posted successfully, WhatsApp auto-opened');
             } else {
                 console.error('[Lead] Lead post failed, staying on step 3');
                 alert('提交未成功，請再試一次。');
