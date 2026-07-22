@@ -43,6 +43,23 @@
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=20260404-2">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQ9CMVCBJ1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HQ9CMVCBJ1');
+    </script>
+    <script>
+    window.addEventListener("load", function(event) {
+        document.querySelectorAll("a[href*='https://api.whatsapp.com/']").forEach(function(e){
+            e.addEventListener('click', function(){
+                gtag('event', 'whatsapp', {'send_to': 'G-HQ9CMVCBJ1'});
+            });
+        });
+    });
+    </script>
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -460,8 +477,8 @@
                 <div id="step-success" class="step-content hidden success-step">
                     <div id="confetti-container" class="confetti-container"></div>
                     <div class="success-icon"><i data-lucide="check" class="w-6 h-6"></i></div>
-                    <h3 class="lead-title">差一步就完成預約！</h3>
-                    <p class="lead-subtitle">請按下方按鈕，透過 WhatsApp 傳送你的資料，<br>Andrew 才能根據你的目標提供建議。</p>
+                    <h3 class="lead-title">WhatsApp已為你開啟！</h3>
+                    <p class="lead-subtitle">如果未自動跳轉，請按下方按鈕。</p>
                     <a id="wa-link" href="#" target="_blank" rel="noopener noreferrer" class="lead-submit whatsapp-link">WhatsApp 傳送並預約體驗課</a>
                 </div>
             </div>
